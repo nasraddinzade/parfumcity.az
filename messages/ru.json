@@ -22,14 +22,25 @@
       "title": "{brand} — ароматы",
       "description": "{brand} в Parfum City: {count} ароматов, цены от {priceFrom}."
     },
-    "cart": { "title": "Корзина", "description": "Выбранные ароматы." },
-    "checkout": { "title": "Оформление заказа", "description": "Контакты и оплата (демо-режим)." },
-    "order": { "title": "Заказ", "description": "Подтверждение заказа." },
+    "cart": {
+      "title": "Корзина",
+      "description": "Выбранные ароматы."
+    },
+    "checkout": {
+      "title": "Оформление заказа",
+      "description": "Контакты и оплата (демо-режим)."
+    },
+    "order": {
+      "title": "Заказ",
+      "description": "Подтверждение заказа."
+    },
     "boutique": {
       "title": "Бутик — Parfum City, Баку",
       "description": "Улица Низами 111, Насиминский район. Ежедневно 10:30–20:30. +994 50 995 27 27."
     },
-    "notFound": { "title": "Страница не найдена" }
+    "notFound": {
+      "title": "Страница не найдена"
+    }
   },
   "nav": {
     "home": "Главная",
@@ -41,7 +52,15 @@
     "closeMenu": "Закрыть меню",
     "skipToContent": "К содержимому"
   },
-  "lang": { "label": "Язык", "switchTo": "Переключить на {name}" },
+  "lang": {
+    "label": "Язык",
+    "switchTo": "Переключить на {name}"
+  },
+  "theme": {
+    "label": "Тема",
+    "toLight": "Светлая тема",
+    "toDark": "Тёмная тема"
+  },
   "common": {
     "ml": "мл",
     "niche": "Ниша",
@@ -251,7 +270,11 @@
     "paid": "Оплачено (демо), карта **** {last4}",
     "date": "Дата",
     "continue": "Вернуться в коллекцию",
-    "methods": { "pickup": "Самовывоз из бутика", "wolt": "Доставка через Wolt", "courier": "Курьер" }
+    "methods": {
+      "pickup": "Самовывоз из бутика",
+      "wolt": "Доставка через Wolt",
+      "courier": "Курьер"
+    }
   },
   "boutique": {
     "eyebrow": "Бутик",

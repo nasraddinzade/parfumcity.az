@@ -65,6 +65,46 @@
   }
 }
 
+/*
+ * Themes. The dark palette is the default (it matches the boutique's visual
+ * identity); the light one re-maps the same tokens so every component keeps
+ * working unchanged. Token names stay "ink"/"cream" for background/text.
+ */
+:root {
+  color-scheme: dark;
+  /* Code-drawn flacon: saturation/lightness pairs, hue comes from the brand. */
+  --flacon-bg: 14% 10%;
+  --flacon-glass: 18% 22%;
+  --flacon-liquid: 32% 34%;
+  --flacon-liquid-deep: 36% 22%;
+  --flacon-highlight: 30% 70% / 0.35;
+  --flacon-cap: 10% 42%;
+  --flacon-ink: #f2ece2;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-ink: #f5f0e8;
+  --color-ink-2: #efe9df;
+  --color-panel: #e9e2d6;
+  --color-panel-2: #e1d9cb;
+  --color-line: #ddd4c6;
+  --color-line-strong: #b5a994;
+  --color-cream: #1a1511;
+  --color-cream-2: #4a4038;
+  --color-cream-3: #7a6f63;
+  --color-brass: #96763a;
+  --color-brass-2: #6f5527;
+  --color-danger: #a3432d;
+  --flacon-bg: 16% 91%;
+  --flacon-glass: 18% 74%;
+  --flacon-liquid: 28% 58%;
+  --flacon-liquid-deep: 32% 42%;
+  --flacon-highlight: 30% 99% / 0.6;
+  --flacon-cap: 10% 46%;
+  --flacon-ink: #1a1511;
+}
+
 @layer base {
   html {
     background-color: var(--color-ink);

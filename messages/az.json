@@ -22,14 +22,25 @@
       "title": "{brand} — ətirlər",
       "description": "Parfum City-də {brand}: {count} ətir, {priceFrom}-dən başlayan qiymətlərlə."
     },
-    "cart": { "title": "Səbət", "description": "Seçdiyiniz ətirlər." },
-    "checkout": { "title": "Sifarişin rəsmiləşdirilməsi", "description": "Əlaqə məlumatları və ödəniş (demo rejimi)." },
-    "order": { "title": "Sifariş", "description": "Sifarişin təsdiqi." },
+    "cart": {
+      "title": "Səbət",
+      "description": "Seçdiyiniz ətirlər."
+    },
+    "checkout": {
+      "title": "Sifarişin rəsmiləşdirilməsi",
+      "description": "Əlaqə məlumatları və ödəniş (demo rejimi)."
+    },
+    "order": {
+      "title": "Sifariş",
+      "description": "Sifarişin təsdiqi."
+    },
     "boutique": {
       "title": "Butik — Parfum City, Bakı",
       "description": "Nizami küçəsi 111, Nəsimi rayonu. Hər gün 10:30–20:30. +994 50 995 27 27."
     },
-    "notFound": { "title": "Səhifə tapılmadı" }
+    "notFound": {
+      "title": "Səhifə tapılmadı"
+    }
   },
   "nav": {
     "home": "Ana səhifə",
@@ -41,7 +52,15 @@
     "closeMenu": "Menyunu bağla",
     "skipToContent": "Məzmuna keç"
   },
-  "lang": { "label": "Dil", "switchTo": "{name} dilinə keç" },
+  "lang": {
+    "label": "Dil",
+    "switchTo": "{name} dilinə keç"
+  },
+  "theme": {
+    "label": "Mövzu",
+    "toLight": "Açıq mövzu",
+    "toDark": "Tünd mövzu"
+  },
   "common": {
     "ml": "ml",
     "niche": "Niş",
@@ -251,7 +270,11 @@
     "paid": "Ödənildi (demo), kart **** {last4}",
     "date": "Tarix",
     "continue": "Kolleksiyaya qayıt",
-    "methods": { "pickup": "Butikdən götürmə", "wolt": "Wolt ilə çatdırılma", "courier": "Kuryer" }
+    "methods": {
+      "pickup": "Butikdən götürmə",
+      "wolt": "Wolt ilə çatdırılma",
+      "courier": "Kuryer"
+    }
   },
   "boutique": {
     "eyebrow": "Butik",

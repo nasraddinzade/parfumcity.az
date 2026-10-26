@@ -19,6 +19,7 @@ Bu, butikin rəsmi saytı deyil: butikin öz saytı yoxdur, konsept soyuq təkli
 - Səbət: `localStorage`-da saxlanılır, sağdan açılan panel, başlıqda sayğac.
 - Sifariş imitasiyası: əlaqə → kart → təsdiq. Real ödəniş yoxdur (aşağıya bax).
 - SEO: hər səhifədə `title`/`description`, hreflang, Open Graph şəkilləri, `sitemap.xml`, `robots.txt`, JSON-LD (Store, Product).
+- Tünd və açıq mövzu: başlıqdakı düymə, seçim `localStorage`-da saxlanılır, səhifə yüklənəndə yanıb-sönmür. Standart mövzu tünddür. Açıq palitra `app/globals.css`-də `:root[data-theme="light"]` blokundadır.
 
 ### Necə işə salmaq
 
@@ -87,6 +88,7 @@ Next.js 15 (App Router, TypeScript strict), Tailwind CSS v4 (`@theme` tokenləri
 - Корзина в `localStorage`, выезжающая панель справа, счётчик в шапке.
 - Имитация заказа: контакты → карта → подтверждение. Реальной оплаты нет (см. ниже).
 - SEO: `title`/`description` на каждой странице, hreflang, Open Graph-картинки, `sitemap.xml`, `robots.txt`, JSON-LD (Store, Product).
+- Тёмная и светлая тема: кнопка в шапке, выбор хранится в `localStorage` и применяется до отрисовки, без мигания. По умолчанию тёмная. Светлая палитра описана в `app/globals.css` в блоке `:root[data-theme="light"]`, компоненты используют одни и те же токены.
 
 ### Как запустить
 

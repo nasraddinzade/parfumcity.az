@@ -38,10 +38,13 @@ export function generateStaticParams() {
 
 export const viewport: Viewport = {
   themeColor: "#0e0c0a",
-  colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
 };
+
+/** Applies the saved theme before paint so a light-theme visitor never sees a dark flash. */
+const themeScript =
+  "(function(){try{var t=localStorage.getItem('parfumcity-theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t)}}catch(e){}})();";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -68,7 +71,15 @@ export default async function LocaleLayout({
   const dict = getDictionary(locale);
 
   return (
-    <html lang={htmlLang[locale]} className={bodoni.variable + " " + playfair.variable + " " + jost.variable}>
+    <html
+      lang={htmlLang[locale]}
+      className={bodoni.variable + " " + playfair.variable + " " + jost.variable}
+      // data-theme is set by the inline script before hydration, so the attribute may legitimately differ.
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="flex min-h-dvh flex-col bg-ink text-cream">
         <I18nProvider locale={locale} dict={dict}>
           <a

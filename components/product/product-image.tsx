@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { BottlePlaceholder } from "@/components/product/bottle-placeholder";
 import { resolveProductImage } from "@/data/images";
 import { cn } from "@/lib/cn";
-import { blurDataUrl, bottlePalette } from "@/lib/placeholder";
+import type { CSSProperties } from "react";
+import { blurDataUrl, brandHue } from "@/lib/placeholder";
 import type { Product } from "@/types/product";
 
 interface Props {
@@ -35,7 +36,9 @@ export function ProductImage({ product, sizes, priority = false, className }: Pr
   return (
     <div
       className={cn("relative aspect-[3/4] w-full overflow-hidden", className)}
-      style={{ backgroundColor: bottlePalette(product.brand).bg }}
+      style={
+        { "--h": String(brandHue(product.brand)), backgroundColor: "hsl(var(--h) var(--flacon-bg))" } as CSSProperties
+      }
     >
       {showPhoto ? (
         <Image

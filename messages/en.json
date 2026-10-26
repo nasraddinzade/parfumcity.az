@@ -22,14 +22,25 @@
       "title": "{brand} — fragrances",
       "description": "{brand} at Parfum City: {count} fragrances, prices from {priceFrom}."
     },
-    "cart": { "title": "Cart", "description": "Your selected fragrances." },
-    "checkout": { "title": "Checkout", "description": "Contact details and payment (demo mode)." },
-    "order": { "title": "Order", "description": "Order confirmation." },
+    "cart": {
+      "title": "Cart",
+      "description": "Your selected fragrances."
+    },
+    "checkout": {
+      "title": "Checkout",
+      "description": "Contact details and payment (demo mode)."
+    },
+    "order": {
+      "title": "Order",
+      "description": "Order confirmation."
+    },
     "boutique": {
       "title": "Boutique — Parfum City, Baku",
       "description": "Nizami street 111, Nasimi district. Daily 10:30–20:30. +994 50 995 27 27."
     },
-    "notFound": { "title": "Page not found" }
+    "notFound": {
+      "title": "Page not found"
+    }
   },
   "nav": {
     "home": "Home",
@@ -41,7 +52,15 @@
     "closeMenu": "Close menu",
     "skipToContent": "Skip to content"
   },
-  "lang": { "label": "Language", "switchTo": "Switch to {name}" },
+  "lang": {
+    "label": "Language",
+    "switchTo": "Switch to {name}"
+  },
+  "theme": {
+    "label": "Theme",
+    "toLight": "Light theme",
+    "toDark": "Dark theme"
+  },
   "common": {
     "ml": "ml",
     "niche": "Niche",
@@ -251,7 +270,11 @@
     "paid": "Paid (demo), card **** {last4}",
     "date": "Date",
     "continue": "Back to the collection",
-    "methods": { "pickup": "Pick up at the boutique", "wolt": "Delivery via Wolt", "courier": "Courier" }
+    "methods": {
+      "pickup": "Pick up at the boutique",
+      "wolt": "Delivery via Wolt",
+      "courier": "Courier"
+    }
   },
   "boutique": {
     "eyebrow": "Boutique",

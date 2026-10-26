@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useI18n } from "@/components/providers/i18n-provider";
 import { CartButton } from "@/components/layout/cart-button";
 import { LangSwitcher } from "@/components/layout/lang-switcher";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { CloseIcon, MenuIcon } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
 
@@ -79,8 +80,9 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center justify-self-end gap-6">
+          <div className="flex items-center justify-self-end gap-4 md:gap-6">
             <LangSwitcher className="hidden md:flex" />
+            <ThemeToggle className="hidden md:flex" />
             <CartButton />
           </div>
         </div>
@@ -111,6 +113,7 @@ export function Header() {
         <div className="flex flex-col gap-6 border-t border-line pt-6">
           <p className="caption text-cream-3">{t("lang.label")}</p>
           <LangSwitcher size="lg" />
+          <ThemeToggle withLabel className="mt-2 text-sm" />
         </div>
       </div>
     </>
