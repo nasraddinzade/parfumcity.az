@@ -1,0 +1,200 @@
+[
+  {
+    "name": "ARMANI",
+    "slug": "armani",
+    "segment": "designer",
+    "count": 42
+  },
+  {
+    "name": "BOHEMIA",
+    "slug": "bohemia",
+    "segment": "niche",
+    "count": 8
+  },
+  {
+    "name": "BRIONI",
+    "slug": "brioni",
+    "segment": "designer",
+    "count": 6
+  },
+  {
+    "name": "BYREDO",
+    "slug": "byredo",
+    "segment": "niche",
+    "count": 30
+  },
+  {
+    "name": "CASAMORATI",
+    "slug": "casamorati",
+    "segment": "niche",
+    "count": 15
+  },
+  {
+    "name": "CLIVE CHRISTIAN",
+    "slug": "clive-christian",
+    "segment": "niche",
+    "count": 19
+  },
+  {
+    "name": "ELIE SAAB",
+    "slug": "elie-saab",
+    "segment": "designer",
+    "count": 18
+  },
+  {
+    "name": "ESSENTIAL PARFUMS",
+    "slug": "essential-parfums",
+    "segment": "niche",
+    "count": 37
+  },
+  {
+    "name": "GERINI",
+    "slug": "gerini",
+    "segment": "niche",
+    "count": 9
+  },
+  {
+    "name": "GIVENCHY",
+    "slug": "givenchy",
+    "segment": "designer",
+    "count": 22
+  },
+  {
+    "name": "GRITTI",
+    "slug": "gritti",
+    "segment": "niche",
+    "count": 19
+  },
+  {
+    "name": "GUERLAIN",
+    "slug": "guerlain",
+    "segment": "designer",
+    "count": 13
+  },
+  {
+    "name": "HERMES",
+    "slug": "hermes",
+    "segment": "designer",
+    "count": 27
+  },
+  {
+    "name": "HFC PARIS",
+    "slug": "hfc-paris",
+    "segment": "niche",
+    "count": 20
+  },
+  {
+    "name": "JEAN PAUL GAULTIER",
+    "slug": "jean-paul-gaultier",
+    "segment": "designer",
+    "count": 13
+  },
+  {
+    "name": "JULIETTE HAS A GUN",
+    "slug": "juliette-has-a-gun",
+    "segment": "niche",
+    "count": 11
+  },
+  {
+    "name": "LANCOME",
+    "slug": "lancome",
+    "segment": "designer",
+    "count": 29
+  },
+  {
+    "name": "MEMO PARIS",
+    "slug": "memo-paris",
+    "segment": "niche",
+    "count": 19
+  },
+  {
+    "name": "MOUDON",
+    "slug": "moudon",
+    "segment": "niche",
+    "count": 17
+  },
+  {
+    "name": "ORLOV",
+    "slug": "orlov",
+    "segment": "niche",
+    "count": 5
+  },
+  {
+    "name": "PARADIS DES SENS",
+    "slug": "paradis-des-sens",
+    "segment": "niche",
+    "count": 10
+  },
+  {
+    "name": "PRADA",
+    "slug": "prada",
+    "segment": "designer",
+    "count": 12
+  },
+  {
+    "name": "ROJA PARFUMS",
+    "slug": "roja-parfums",
+    "segment": "niche",
+    "count": 14
+  },
+  {
+    "name": "SCENTOLOGIA",
+    "slug": "scentologia",
+    "segment": "niche",
+    "count": 8
+  },
+  {
+    "name": "SOSPIRO",
+    "slug": "sospiro",
+    "segment": "niche",
+    "count": 9
+  },
+  {
+    "name": "THAMEEN",
+    "slug": "thameen",
+    "segment": "niche",
+    "count": 23
+  },
+  {
+    "name": "TOM FORD",
+    "slug": "tom-ford",
+    "segment": "designer",
+    "count": 31
+  },
+  {
+    "name": "VILHELM PARFUMERIE",
+    "slug": "vilhelm-parfumerie",
+    "segment": "niche",
+    "count": 14
+  },
+  {
+    "name": "WIDIAN",
+    "slug": "widian",
+    "segment": "niche",
+    "count": 14
+  },
+  {
+    "name": "XERJOFF",
+    "slug": "xerjoff",
+    "segment": "niche",
+    "count": 24
+  },
+  {
+    "name": "YVES SAINT LAURENT",
+    "slug": "yves-saint-laurent",
+    "segment": "designer",
+    "count": 37
+  },
+  {
+    "name": "ZILLI",
+    "slug": "zilli",
+    "segment": "designer",
+    "count": 5
+  },
+  {
+    "name": "ALFRED RITCHY",
+    "slug": "alfred-ritchy",
+    "segment": "niche",
+    "count": 10
+  }
+]
