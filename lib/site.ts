@@ -19,4 +19,17 @@ export const site = {
   geo: { city: "Bakı", district: "Nəsimi rayonu", postalCode: "AZ1010", country: "AZ" },
 } as const;
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://parfumcity-az.vercel.app").replace(/\/$/, "");
+/**
+ * Public origin used for canonical links, hreflang, sitemap and JSON-LD.
+ * Set NEXT_PUBLIC_SITE_URL for a custom domain; on Vercel the production
+ * deployment URL is picked up automatically.
+ */
+function resolveSiteUrl(): string {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL;
+  if (explicit) return explicit.replace(/\/$/, "");
+  const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  if (vercel) return "https://" + vercel;
+  return "http://localhost:3000";
+}
+
+export const SITE_URL = resolveSiteUrl();

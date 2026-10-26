@@ -31,7 +31,7 @@ npm run lint
 npm run typecheck
 ```
 
-Deploy üçün `NEXT_PUBLIC_SITE_URL` dəyişənini real domenə qoyun (sitemap, hreflang və OG linkləri üçün).
+Vercel-də sayt ünvanı `VERCEL_PROJECT_PRODUCTION_URL`-dən avtomatik götürülür; öz domeniniz üçün `NEXT_PUBLIC_SITE_URL` təyin edin (sitemap, hreflang və OG linkləri üçün).
 Kod Vercel-ə bağlı deyil: istənilən Node.js hostinqdə `next build && next start` işləyir.
 
 ### Data harada
@@ -99,7 +99,7 @@ npm run lint
 npm run typecheck
 ```
 
-Для деплоя задайте `NEXT_PUBLIC_SITE_URL` с реальным доменом (нужен для sitemap, hreflang и OG-ссылок).
+На Vercel адрес сайта подставляется автоматически из `VERCEL_PROJECT_PRODUCTION_URL`; для своего домена задайте `NEXT_PUBLIC_SITE_URL` (нужен для sitemap, hreflang и OG-ссылок).
 Код не зависит от Vercel: `next build && next start` работает на любом Node.js-хостинге.
 
 ### Где лежат данные
