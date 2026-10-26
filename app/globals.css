@@ -15,7 +15,7 @@
   --color-brass-2: #d9c08a;
   --color-danger: #d39483;
 
-  --font-display: var(--font-bodoni), var(--font-playfair), "Bodoni MT", "Didot", Georgia, serif;
+  --font-display: var(--font-playfair), "Playfair Display", Georgia, "Times New Roman", serif;
   --font-sans: var(--font-jost), "Helvetica Neue", Arial, sans-serif;
 
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
@@ -72,8 +72,8 @@
  */
 :root {
   color-scheme: dark;
-  /* Jost 300 reads well on the dark base; on light paper it thins out, so the light theme bumps these. */
-  --weight-body: 300;
+  /* Body text is never lighter than 400: thin weights vanish on the light theme. Labels go to 500 there. */
+  --weight-body: 400;
   --weight-label: 400;
   /* Code-drawn flacon: saturation/lightness pairs, hue comes from the brand. */
   --flacon-bg: 14% 10%;
@@ -87,7 +87,6 @@
 
 :root[data-theme="light"] {
   color-scheme: light;
-  --weight-body: 400;
   --weight-label: 500;
   --color-ink: #f5f0e8;
   --color-ink-2: #efe9df;

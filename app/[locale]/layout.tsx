@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bodoni_Moda, Jost, Playfair_Display } from "next/font/google";
+import { Jost, Playfair_Display } from "next/font/google";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { CartDrawer } from "@/components/cart/cart-drawer";
@@ -12,16 +12,10 @@ import { getDictionary } from "@/lib/i18n/dictionaries";
 import { SITE_URL } from "@/lib/site";
 import "../globals.css";
 
-const bodoni = Bodoni_Moda({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-bodoni",
-  display: "swap",
-  axes: ["opsz"],
-});
-
-// Bodoni Moda has no Cyrillic; Playfair Display fills in those glyphs for Russian headings.
+// Playfair Display keeps visible hairlines at small sizes on light backgrounds
+// (a true didone such as Bodoni thins out there) and covers Cyrillic natively.
 const playfair = Playfair_Display({
-  subsets: ["cyrillic"],
+  subsets: ["latin", "latin-ext", "cyrillic"],
   variable: "--font-playfair",
   display: "swap",
 });
@@ -73,7 +67,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={htmlLang[locale]}
-      className={bodoni.variable + " " + playfair.variable + " " + jost.variable}
+      className={playfair.variable + " " + jost.variable}
       // data-theme is set by the inline script before hydration, so the attribute may legitimately differ.
       suppressHydrationWarning
     >

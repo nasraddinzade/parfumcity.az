@@ -73,7 +73,7 @@ Hazırkı 5 foto Wikimedia Commons-dan götürülmüş müvəqqəti nümunələr
 
 ### Stek
 
-Next.js 15 (App Router, TypeScript strict), Tailwind CSS v4 (`@theme` tokenləri, UI-kit yoxdur), zustand (persist), react-hook-form + zod, `next/image`, `next/font/google` (Bodoni Moda, Jost; kiril üçün Playfair Display). Backend və baza yoxdur.
+Next.js 15 (App Router, TypeScript strict), Tailwind CSS v4 (`@theme` tokenləri, UI-kit yoxdur), zustand (persist), react-hook-form + zod, `next/image`, `next/font/google` (Playfair Display başlıqlar üçün, Jost mətn üçün). Backend və baza yoxdur.
 
 ---
 
@@ -142,7 +142,7 @@ npm run typecheck
 
 ### Стек
 
-Next.js 15 (App Router, TypeScript strict), Tailwind CSS v4 (токены в `@theme`, без UI-китов), zustand (persist), react-hook-form + zod, `next/image`, `next/font/google` (Bodoni Moda, Jost; Playfair Display для кириллицы в заголовках). Бэкенда и базы нет.
+Next.js 15 (App Router, TypeScript strict), Tailwind CSS v4 (токены в `@theme`, без UI-китов), zustand (persist), react-hook-form + zod, `next/image`, `next/font/google` (Playfair Display для заголовков, Jost для текста). Бэкенда и базы нет.
 
 ### Структура
 
