@@ -88,7 +88,7 @@ export default async function BrandPage({ params }: { params: Params }) {
         </dl>
       </header>
 
-      <ProductGrid products={list} className="mt-12" priorityCount={4} />
+      <ProductGrid products={list} className="mt-12" priorityCount={4} headingLevel="h2" />
 
       <div className="mt-16 flex justify-center">
         <Link

@@ -217,7 +217,7 @@ export function Catalog() {
           </div>
         ) : (
           <>
-            <ProductGrid products={shown} columns={3} priorityCount={4} />
+            <ProductGrid products={shown} columns={3} priorityCount={4} headingLevel="h2" />
             <div className="mt-14 flex flex-col items-center gap-4">
               <p className="text-xs text-cream-3">
                 {t("catalog.showing", { shown: shownCount, total: results.length })}

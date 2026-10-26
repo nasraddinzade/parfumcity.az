@@ -13,13 +13,17 @@ interface Props {
   product: Product;
   priority?: boolean;
   sizes?: string;
+  /** h3 under a section heading, h2 when the grid sits directly under the page h1. */
+  headingLevel?: "h2" | "h3";
 }
 
 export function ProductCard({
   product,
   priority = false,
   sizes = "(min-width: 1024px) 270px, (min-width: 640px) 33vw, 50vw",
+  headingLevel = "h3",
 }: Props) {
+  const Heading = headingLevel;
   const { locale, t } = useI18n();
   const add = useCart((s) => s.add);
   const href = "/" + locale + "/mehsul/" + product.slug;
@@ -44,11 +48,11 @@ export function ProductCard({
       </div>
       <div className="mt-4 flex flex-col gap-1">
         <p className="caption text-cream-3">{product.brand}</p>
-        <h3 className="font-display text-lg leading-snug">
+        <Heading className="font-display text-lg leading-snug">
           <Link href={href} className="after:absolute after:inset-0 after:content-['']">
             {product.name}
           </Link>
-        </h3>
+        </Heading>
         <p className="text-sm text-cream-2">
           {product.volumeMl} {t("common.ml")} · {concentrationShort(product.concentration, t)}
         </p>

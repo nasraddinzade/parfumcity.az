@@ -131,15 +131,17 @@ export default async function HomePage({ params }: { params: Params }) {
           <dl className="grid gap-8 sm:grid-cols-2 md:pt-12">
             <div>
               <dt className="caption mb-2 text-cream-3">{t("home.visitEyebrow")}</dt>
-              <dd className="text-lg">{site.address}</dd>
-              <a
-                href={site.mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="caption link-line mt-3 inline-block text-cream-2 hover:text-cream"
-              >
-                {t("home.mapLink")}
-              </a>
+              <dd className="text-lg">
+                {site.address}
+                <a
+                  href={site.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="caption link-line mt-3 block w-fit text-cream-2 hover:text-cream"
+                >
+                  {t("home.mapLink")}
+                </a>
+              </dd>
             </div>
             <div>
               <dt className="caption mb-2 text-cream-3">{t("home.visitHours")}</dt>

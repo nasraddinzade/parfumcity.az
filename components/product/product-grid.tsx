@@ -8,9 +8,10 @@ interface Props {
   priorityCount?: number;
   className?: string;
   columns?: 3 | 4;
+  headingLevel?: "h2" | "h3";
 }
 
-export function ProductGrid({ products, priorityCount = 0, className, columns = 4 }: Props) {
+export function ProductGrid({ products, priorityCount = 0, className, columns = 4, headingLevel = "h3" }: Props) {
   return (
     <ul
       className={cn(
@@ -21,7 +22,7 @@ export function ProductGrid({ products, priorityCount = 0, className, columns = 
     >
       {products.map((p, i) => (
         <li key={p.slug} className="relative">
-          <ProductCard product={p} priority={i < priorityCount} />
+          <ProductCard product={p} priority={i < priorityCount} headingLevel={headingLevel} />
         </li>
       ))}
     </ul>
