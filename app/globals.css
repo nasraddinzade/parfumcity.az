@@ -72,6 +72,9 @@
  */
 :root {
   color-scheme: dark;
+  /* Jost 300 reads well on the dark base; on light paper it thins out, so the light theme bumps these. */
+  --weight-body: 300;
+  --weight-label: 400;
   /* Code-drawn flacon: saturation/lightness pairs, hue comes from the brand. */
   --flacon-bg: 14% 10%;
   --flacon-glass: 18% 22%;
@@ -84,6 +87,8 @@
 
 :root[data-theme="light"] {
   color-scheme: light;
+  --weight-body: 400;
+  --weight-label: 500;
   --color-ink: #f5f0e8;
   --color-ink-2: #efe9df;
   --color-panel: #e9e2d6;
@@ -92,9 +97,9 @@
   --color-line-strong: #b5a994;
   --color-cream: #1a1511;
   --color-cream-2: #4a4038;
-  --color-cream-3: #7a6f63;
-  --color-brass: #96763a;
-  --color-brass-2: #6f5527;
+  --color-cream-3: #6a5f53;
+  --color-brass: #8a6a2e;
+  --color-brass-2: #5f4a20;
   --color-danger: #a3432d;
   --flacon-bg: 16% 91%;
   --flacon-glass: 18% 74%;
@@ -115,7 +120,7 @@
   }
   body {
     font-family: var(--font-sans);
-    font-weight: 300;
+    font-weight: var(--weight-body);
     font-size: 1rem;
     line-height: 1.6;
     min-height: 100dvh;
@@ -186,7 +191,7 @@
 @utility eyebrow {
   font-family: var(--font-sans);
   font-size: 0.6875rem;
-  font-weight: 400;
+  font-weight: var(--weight-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-brass);
@@ -195,7 +200,7 @@
 @utility caption {
   font-family: var(--font-sans);
   font-size: 0.6875rem;
-  font-weight: 400;
+  font-weight: var(--weight-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
@@ -210,7 +215,7 @@
   border: 1px solid transparent;
   font-family: var(--font-sans);
   font-size: 0.6875rem;
-  font-weight: 400;
+  font-weight: var(--weight-label);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -278,7 +283,7 @@
   border-radius: 0;
   padding: 0.75rem 0;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: var(--weight-body);
   color: var(--color-cream);
   transition: border-color 400ms var(--ease-soft);
   &:focus {
