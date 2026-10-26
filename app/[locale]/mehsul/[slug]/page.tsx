@@ -44,7 +44,12 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 }
 
 function productJsonLd(product: Product, locale: Locale) {
-  const image = resolveProductImage(product).src ?? SITE_URL + "/" + locale + "/mehsul/" + product.slug + "/opengraph-image";
+  const resolved = resolveProductImage(product).src;
+  const image = resolved
+    ? resolved.startsWith("/")
+      ? SITE_URL + resolved
+      : resolved
+    : SITE_URL + "/" + locale + "/mehsul/" + product.slug + "/opengraph-image";
   return {
     "@context": "https://schema.org",
     "@type": "Product",

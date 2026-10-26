@@ -6,6 +6,7 @@ import { ProductImage } from "@/components/product/product-image";
 import { CloseIcon, MinusIcon, PlusIcon } from "@/components/ui/icons";
 import type { CartLine as Line } from "@/lib/cart";
 import { formatPrice } from "@/lib/format";
+import { concentrationShort } from "@/lib/i18n/labels";
 import { MAX_QTY, useCart } from "@/store/cart";
 
 export function CartLine({ line, compact = false }: { line: Line; compact?: boolean }) {
@@ -26,7 +27,7 @@ export function CartLine({ line, compact = false }: { line: Line; compact?: bool
           {product.name}
         </Link>
         <p className="text-sm text-cream-2">
-          {product.volumeMl} {t("common.ml")} · {product.concentration}
+          {product.volumeMl} {t("common.ml")} · {concentrationShort(product.concentration, t)}
         </p>
         <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center border border-line-strong" role="group" aria-label={t("cart.qty")}>

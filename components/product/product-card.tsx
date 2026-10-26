@@ -5,6 +5,7 @@ import { useI18n } from "@/components/providers/i18n-provider";
 import { ProductImage } from "@/components/product/product-image";
 import { PlusIcon } from "@/components/ui/icons";
 import { formatPrice } from "@/lib/format";
+import { concentrationShort } from "@/lib/i18n/labels";
 import { useCart } from "@/store/cart";
 import type { Product } from "@/types/product";
 
@@ -47,7 +48,7 @@ export function ProductCard({
           </Link>
         </h3>
         <p className="text-sm text-cream-2">
-          {product.volumeMl} {t("common.ml")} · {product.concentration}
+          {product.volumeMl} {t("common.ml")} · {concentrationShort(product.concentration, t)}
         </p>
         <p className="mt-1 text-sm">{formatPrice(product.priceAzn, locale)}</p>
       </div>

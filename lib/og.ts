@@ -1,45 +1,33 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import type { ImageResponse } from "next/og";
 
-type Font = NonNullable<ConstructorParameters<typeof ImageResponse>[1]>["fonts"] extends (infer F)[] | undefined
+type Font = NonNullable<
+  ConstructorParameters<typeof ImageResponse>[1]
+>["fonts"] extends (infer F)[] | undefined
   ? F
   : never;
 
-const cache = new Map<string, Promise<ArrayBuffer | null>>();
+const FONT_DIR = join(process.cwd(), "assets", "fonts");
+
+let cached: Promise<Font[]> | null = null;
 
 /**
- * Loads a TrueType file for a Google font so Open Graph images can render
- * Latin-extended and Cyrillic text. Falls back silently to the default font
- * when the network is unavailable.
+ * Fonts for Open Graph images, read once from assets/fonts. Jost covers
+ * Latin-extended and Cyrillic text; Playfair Display is the display face
+ * (Bodoni Moda has no Cyrillic, and Satori needs a single file per face).
  */
-async function loadGoogleFont(family: string, text: string): Promise<ArrayBuffer | null> {
-  const key = family + ":" + text;
-  const existing = cache.get(key);
-  if (existing) return existing;
-  const task = (async () => {
-    try {
-      const css = await fetch(
-        "https://fonts.googleapis.com/css2?family=" + encodeURIComponent(family) + "&text=" + encodeURIComponent(text),
-        // An old user agent makes Google serve TTF, which Satori can read (it cannot read woff2).
-        { headers: { "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:6.0) Gecko/20100101 Firefox/6.0" } },
-      ).then((r) => (r.ok ? r.text() : ""));
-      const match = /src:\s*url\(([^)]+)\)\s*format\('(?:truetype|opentype)'\)/.exec(css);
-      if (!match?.[1]) return null;
-      const res = await fetch(match[1]);
-      return res.ok ? res.arrayBuffer() : null;
-    } catch {
-      return null;
-    }
-  })();
-  cache.set(key, task);
-  return task;
-}
-
-export async function ogFonts(text: string): Promise<Font[]> {
-  const [display, sans] = await Promise.all([loadGoogleFont("Playfair Display", text), loadGoogleFont("Jost", text)]);
-  const fonts: Font[] = [];
-  if (display) fonts.push({ name: "Display", data: display, style: "normal", weight: 400 });
-  if (sans) fonts.push({ name: "Sans", data: sans, style: "normal", weight: 400 });
-  return fonts;
+export function ogFonts(): Promise<Font[]> {
+  if (!cached) {
+    cached = Promise.all([
+      readFile(join(FONT_DIR, "PlayfairDisplay-Regular.woff")),
+      readFile(join(FONT_DIR, "Jost-Regular.woff")),
+    ]).then(([display, sans]) => [
+      { name: "Display", data: display, style: "normal", weight: 400 },
+      { name: "Sans", data: sans, style: "normal", weight: 400 },
+    ]);
+  }
+  return cached;
 }
 
 export const ogColors = {

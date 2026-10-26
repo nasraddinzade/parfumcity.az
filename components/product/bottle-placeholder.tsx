@@ -20,8 +20,9 @@ export function BottlePlaceholder({ brand, label, className, transparent = false
   return (
     <svg
       viewBox="0 0 300 400"
-      role="img"
-      aria-label={label}
+      role={label ? "img" : undefined}
+      aria-label={label || undefined}
+      aria-hidden={label ? undefined : true}
       className={cn("block h-full w-full", className)}
       preserveAspectRatio="xMidYMid slice"
     >

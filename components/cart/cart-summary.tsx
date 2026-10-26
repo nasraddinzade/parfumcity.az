@@ -34,6 +34,7 @@ export function CartSummary({ lines, className }: { lines: readonly CartLine[]; 
                 type="radio"
                 name="delivery"
                 value={o.value}
+                aria-label={o.label}
                 checked={delivery === o.value}
                 onChange={() => setDelivery(o.value)}
                 className="h-4 w-4 accent-[var(--color-brass)]"

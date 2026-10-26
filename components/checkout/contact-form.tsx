@@ -106,7 +106,13 @@ export function ContactForm({ defaultValues, onSubmit }: Props) {
               method === m.value ? "border-cream" : "border-line hover:border-line-strong",
             )}
           >
-            <input type="radio" value={m.value} className="mt-1 h-4 w-4 accent-[var(--color-brass)]" {...register("method")} />
+            <input
+              type="radio"
+              value={m.value}
+              aria-label={m.label}
+              className="mt-1 h-4 w-4 accent-[var(--color-brass)]"
+              {...register("method")}
+            />
             <span className="flex flex-1 flex-col gap-1">
               <span className="flex justify-between gap-4 text-sm">
                 <span>{m.label}</span>

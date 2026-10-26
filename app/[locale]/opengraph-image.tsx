@@ -1,8 +1,12 @@
 import { ImageResponse } from "next/og";
 import { OgFrame } from "@/components/og/og-frame";
-import { isLocale } from "@/lib/i18n/config";
+import { isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { ogFonts, ogSize } from "@/lib/og";
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export const alt = "Parfum City";
 export const size = ogSize;
@@ -14,10 +18,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
   const title = dict.meta.tagline;
   const eyebrow = dict.common.since.replace("{year}", "2023");
   const footer = dict.home.statBrands + " 33 · " + dict.home.statProducts + " 590";
-  const fonts = await ogFonts("Parfum City Bakı · Nizami 111 33 590 0123456789" + title + eyebrow + footer);
+  const fonts = await ogFonts();
 
-  return new ImageResponse(
-    <OgFrame eyebrow={eyebrow} title={title} footer={footer} hasFonts={fonts.length > 0} />,
-    { ...size, fonts },
-  );
+  return new ImageResponse(<OgFrame eyebrow={eyebrow} title={title} footer={footer} />, { ...size, fonts });
 }

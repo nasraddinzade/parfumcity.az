@@ -100,6 +100,7 @@ export function Filters({ query, onChange, onClear, activeCount, idPrefix = "f" 
                     <input
                       id={id}
                       type="checkbox"
+                      aria-label={b.name}
                       checked={checked}
                       onChange={() => onChange({ brands: toggle(query.brands, b.slug) })}
                       className="h-4 w-4 shrink-0 appearance-none border border-line-strong checked:border-cream checked:bg-cream"

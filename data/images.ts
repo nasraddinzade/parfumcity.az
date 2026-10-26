@@ -1,37 +1,40 @@
 /**
- * External image map.
+ * Image map for products and brands.
  *
  * Priority when rendering a product:
  *   1. productImages[product.slug]
  *   2. brandImages[product.brandSlug]
  *   3. generated placeholder (components/product/product-image.tsx)
  *
- * Replace or extend these links with the boutique's own photos. Every host used
- * here must also be listed in `imageHosts`, which feeds `images.remotePatterns`
- * in next.config.ts.
+ * A value can be a path under /public (e.g. "/images/products/x.jpg") or an
+ * absolute https URL. Every external host must be listed in `imageHosts`,
+ * which feeds `images.remotePatterns` in next.config.ts. External hosts often
+ * refuse hotlinking, so <ProductImage> falls back to the drawn flacon when a
+ * request fails.
  *
- * The current links point to freely licensed photographs on Wikimedia Commons
- * and are placeholders for the concept only.
+ * The photos shipped with the concept are freely licensed placeholders from
+ * Wikimedia Commons (see public/images/CREDITS.md). Replace them with the
+ * boutique's own photography when it arrives.
  */
 
-const commons = (hash: string, file: string, width = 1200) =>
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/" + hash + "/" + file + "/" + width + "px-" + file;
-
 export const productImages: Record<string, string> = {
-  "armani-acqua-di-gio-edt-30": commons("7/74", "Armani_acqua_di_Gio_M.jpg", 800),
-  "armani-acqua-di-gio-edt-50": commons("7/74", "Armani_acqua_di_Gio_M.jpg", 800),
-  "guerlain-shalimar-edp-50": commons("9/9c", "Shalimar.jpg", 1000),
-  "guerlain-shalimar-edp-90": commons("9/9c", "Shalimar.jpg", 1000),
+  "armani-acqua-di-gio-edt-30": "/images/products/armani-acqua-di-gio.jpg",
+  "armani-acqua-di-gio-edt-50": "/images/products/armani-acqua-di-gio.jpg",
+  "guerlain-shalimar-edp-50": "/images/products/guerlain-shalimar.jpg",
+  "guerlain-shalimar-edp-90": "/images/products/guerlain-shalimar.jpg",
 };
 
 export const brandImages: Record<string, string> = {
-  armani: commons("d/d3", "Acqua_di_gi%C3%B2_Bottles.jpg", 1000),
-  byredo: commons("5/56", "Picture_of_Byredo_perfume.jpg", 1200),
-  guerlain: commons("9/9c", "Shalimar.jpg", 1000),
-  prada: commons("4/48", "Prada_Infusion_d%27Iris_Cedre.jpg", 1200),
+  armani: "/images/brands/armani.jpg",
+  byredo: "/images/brands/byredo.jpg",
+  guerlain: "/images/products/guerlain-shalimar.jpg",
+  prada: "/images/brands/prada.jpg",
 };
 
-/** Hosts allowed for next/image. Keep in sync with the links above. */
+/**
+ * External hosts allowed for next/image. Add the host of any absolute URL you
+ * put in the maps above (a CDN, the boutique's own storage, Instagram proxy…).
+ */
 export const imageHosts: readonly string[] = ["upload.wikimedia.org"];
 
 export type ResolvedImage = { kind: "product" | "brand"; src: string } | { kind: "placeholder"; src: null };

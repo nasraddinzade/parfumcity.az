@@ -11,20 +11,37 @@ export const alt = "Parfum City";
 export const size = ogSize;
 export const contentType = "image/png";
 
-export default async function Image({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+export default async function Image({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
   const { locale: raw, slug } = await params;
   const locale = isLocale(raw) ? raw : "az";
   const dict = getDictionary(locale);
   const product = getProduct(slug);
   const title = product ? product.name : dict.meta.tagline;
   const eyebrow = product ? product.brand : "Parfum City";
-  const subtitle = product ? product.volumeMl + " ml · " + product.concentration + " · " + formatPrice(product.priceAzn, locale) : undefined;
+  const subtitle = product
+    ? product.volumeMl +
+      " ml · " +
+      product.concentration +
+      " · " +
+      formatPrice(product.priceAzn, locale).replace("₼", "AZN")
+    : undefined;
   const footer = dict.meta.tagline;
-  const fonts = await ogFonts("Parfum City Bakı · Nizami 111 ₼ 0123456789 ml" + title + eyebrow + (subtitle ?? "") + footer);
+  const fonts = await ogFonts();
 
   return new ImageResponse(
-    <OgFrame eyebrow={eyebrow} title={title} subtitle={subtitle} footer={footer} hasFonts={fonts.length > 0}>
-      {product && <OgBottle brand={product.brand} initial={product.brand.charAt(0)} />}
+    <OgFrame
+      eyebrow={eyebrow}
+      title={title}
+      subtitle={subtitle}
+      footer={footer}
+    >
+      {product && (
+        <OgBottle brand={product.brand} initial={product.brand.charAt(0)} />
+      )}
     </OgFrame>,
     { ...size, fonts },
   );
