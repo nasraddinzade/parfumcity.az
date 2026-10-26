@@ -36,7 +36,9 @@ function Chip({ active, children, onClick }: { active: boolean; children: React.
       onClick={onClick}
       className={cn(
         "min-h-9 border px-3 text-xs tracking-wide transition-colors duration-300",
-        active ? "border-cream bg-cream text-ink" : "border-line-strong text-cream-2 hover:border-cream hover:text-cream",
+        active
+          ? "border-cream bg-cream text-ink"
+          : "border-line-strong text-cream-2 hover:border-cream hover:text-cream",
       )}
     >
       {children}
@@ -75,7 +77,11 @@ export function Filters({ query, onChange, onClear, activeCount, idPrefix = "f" 
       <Group title={t("catalog.segment")}>
         <div className="flex flex-wrap gap-2">
           {segments.map((s) => (
-            <Chip key={String(s.value)} active={query.segment === s.value} onClick={() => onChange({ segment: s.value })}>
+            <Chip
+              key={String(s.value)}
+              active={query.segment === s.value}
+              onClick={() => onChange({ segment: s.value })}
+            >
               {s.label}
             </Chip>
           ))}
@@ -118,7 +124,11 @@ export function Filters({ query, onChange, onClear, activeCount, idPrefix = "f" 
       <Group title={t("catalog.volume")}>
         <div className="flex flex-wrap gap-2">
           {allVolumes.map((v) => (
-            <Chip key={v} active={query.volumes.includes(v)} onClick={() => onChange({ volumes: toggle(query.volumes, v) })}>
+            <Chip
+              key={v}
+              active={query.volumes.includes(v)}
+              onClick={() => onChange({ volumes: toggle(query.volumes, v) })}
+            >
               {v} {t("common.ml")}
             </Chip>
           ))}

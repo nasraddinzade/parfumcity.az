@@ -38,8 +38,7 @@ export function Header() {
     };
   }, [open]);
 
-  const isActive = (href: string) =>
-    pathname === href || pathname.startsWith(href + "/");
+  const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
 
   return (
     <>
@@ -64,10 +63,7 @@ export function Header() {
             Parfum City
           </Link>
 
-          <nav
-            aria-label={t("nav.home")}
-            className="hidden justify-self-center md:flex md:items-center md:gap-10"
-          >
+          <nav aria-label={t("nav.home")} className="hidden justify-self-center md:flex md:items-center md:gap-10">
             {links.map((l) => (
               <Link
                 key={l.href}
@@ -75,9 +71,7 @@ export function Header() {
                 aria-current={isActive(l.href) ? "page" : undefined}
                 className={cn(
                   "caption link-line py-2",
-                  isActive(l.href)
-                    ? "text-cream"
-                    : "text-cream-2 hover:text-cream",
+                  isActive(l.href) ? "text-cream" : "text-cream-2 hover:text-cream",
                 )}
               >
                 {l.label}
@@ -99,9 +93,7 @@ export function Header() {
         aria-hidden={!open}
         className={cn(
           "fixed inset-x-0 bottom-0 top-16 z-30 flex flex-col justify-between bg-ink px-4 pb-10 pt-10 transition-[opacity,transform] duration-500 ease-soft md:hidden",
-          open
-            ? "translate-y-0 opacity-100"
-            : "pointer-events-none -translate-y-2 opacity-0",
+          open ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0",
         )}
       >
         <nav className="flex flex-col gap-6" aria-label={t("nav.home")}>
@@ -110,10 +102,7 @@ export function Header() {
               key={l.href}
               href={l.href}
               aria-current={isActive(l.href) ? "page" : undefined}
-              className={cn(
-                "font-display text-4xl",
-                isActive(l.href) ? "text-brass-2" : "text-cream",
-              )}
+              className={cn("font-display text-4xl", isActive(l.href) ? "text-brass-2" : "text-cream")}
             >
               {l.label}
             </Link>

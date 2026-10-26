@@ -9,7 +9,10 @@ export function Hero({ locale, t }: { locale: Locale; t: Translator }) {
   const stats = [
     { value: String(catalogStats.brands), label: t("home.statBrands") },
     { value: String(catalogStats.products), label: t("home.statProducts") },
-    { value: formatPrice(catalogStats.min, locale) + " – " + formatPrice(catalogStats.max, locale), label: t("home.statPrices") },
+    {
+      value: formatPrice(catalogStats.min, locale) + " – " + formatPrice(catalogStats.max, locale),
+      label: t("home.statPrices"),
+    },
   ];
 
   return (
@@ -21,7 +24,9 @@ export function Hero({ locale, t }: { locale: Locale; t: Translator }) {
       <div className="container-x relative grid items-center gap-14 py-16 md:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:py-28">
         <div className="flex flex-col gap-8 animate-fade-up">
           <p className="eyebrow">{t("home.heroEyebrow")}</p>
-          <h1 className="font-display text-balance text-5xl leading-[1] sm:text-6xl lg:text-7xl">{t("home.heroTitle")}</h1>
+          <h1 className="font-display text-balance text-5xl leading-[1] sm:text-6xl lg:text-7xl">
+            {t("home.heroTitle")}
+          </h1>
           <p className="max-w-lg text-pretty text-lg text-cream-2">{t("home.heroText")}</p>
           <div className="flex flex-wrap gap-4">
             <Link href={"/" + locale + "/kolleksiya"} className="btn btn-primary">

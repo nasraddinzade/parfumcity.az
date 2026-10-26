@@ -33,7 +33,9 @@ export function ProductCard({
         <button
           type="button"
           onClick={() => add(product.slug)}
-          aria-label={t("product.addToCart") + ": " + product.brand + " " + product.name + " " + product.volumeMl + " ml"}
+          aria-label={
+            t("product.addToCart") + ": " + product.brand + " " + product.name + " " + product.volumeMl + " ml"
+          }
           className="absolute inset-x-0 bottom-0 z-10 flex h-11 translate-y-2 items-center justify-center gap-2 border-t border-line bg-ink/85 caption text-cream opacity-0 backdrop-blur transition-[opacity,transform] duration-500 ease-soft hover:text-brass-2 focus-visible:translate-y-0 focus-visible:opacity-100 group-hover:translate-y-0 group-hover:opacity-100 pointer-coarse:translate-y-0 pointer-coarse:opacity-100"
         >
           <PlusIcon size={16} />

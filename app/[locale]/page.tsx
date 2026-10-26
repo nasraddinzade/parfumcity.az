@@ -70,7 +70,10 @@ export default async function HomePage({ params }: { params: Params }) {
       <section className="container-x py-20 md:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading eyebrow={t("home.featuredEyebrow")} title={t("home.featuredTitle")} />
-          <Link href={"/" + locale + "/kolleksiya"} className="caption link-line flex items-center gap-2 pb-2 text-cream-2 hover:text-cream">
+          <Link
+            href={"/" + locale + "/kolleksiya"}
+            className="caption link-line flex items-center gap-2 pb-2 text-cream-2 hover:text-cream"
+          >
             {t("common.viewAll")}
             <ArrowIcon size={14} />
           </Link>
@@ -91,7 +94,9 @@ export default async function HomePage({ params }: { params: Params }) {
       <section aria-hidden="true" className="relative overflow-hidden border-b border-line">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_80%_at_50%_100%,rgba(184,151,90,0.18),transparent_70%)]" />
         <div className="container-x relative flex items-center justify-center py-20 md:py-32">
-          <p className="font-display text-center text-[clamp(3rem,12vw,10rem)] leading-none tracking-[0.02em] text-cream/90">Nizami 111</p>
+          <p className="font-display text-center text-[clamp(3rem,12vw,10rem)] leading-none tracking-[0.02em] text-cream/90">
+            Nizami 111
+          </p>
         </div>
       </section>
 
@@ -109,7 +114,11 @@ export default async function HomePage({ params }: { params: Params }) {
                 rel={s.external && s.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="caption link-line mt-auto w-fit pt-2 text-cream-3 hover:text-cream"
               >
-                {s.external && s.href.startsWith("http") ? "Wolt" : s.href.startsWith("tel:") ? site.phone : t("nav.boutique")}
+                {s.external && s.href.startsWith("http")
+                  ? "Wolt"
+                  : s.href.startsWith("tel:")
+                    ? site.phone
+                    : t("nav.boutique")}
               </a>
             </li>
           ))}
@@ -123,7 +132,12 @@ export default async function HomePage({ params }: { params: Params }) {
             <div>
               <dt className="caption mb-2 text-cream-3">{t("home.visitEyebrow")}</dt>
               <dd className="text-lg">{site.address}</dd>
-              <a href={site.mapUrl} target="_blank" rel="noopener noreferrer" className="caption link-line mt-3 inline-block text-cream-2 hover:text-cream">
+              <a
+                href={site.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="caption link-line mt-3 inline-block text-cream-2 hover:text-cream"
+              >
                 {t("home.mapLink")}
               </a>
             </div>
@@ -142,7 +156,12 @@ export default async function HomePage({ params }: { params: Params }) {
             <div>
               <dt className="caption mb-2 text-cream-3">Instagram</dt>
               <dd>
-                <a href={site.instagram} target="_blank" rel="noopener noreferrer" className="link-line text-lg hover:text-brass-2">
+                <a
+                  href={site.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-line text-lg hover:text-brass-2"
+                >
                   {site.instagramHandle}
                 </a>
               </dd>

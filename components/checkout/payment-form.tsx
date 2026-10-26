@@ -54,10 +54,7 @@ export function PaymentForm({ totalLabel, processing, onSubmit, onBack }: Props)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-8" autoComplete="off">
-      <div
-        role="note"
-        className="flex flex-col gap-2 border border-brass/60 bg-panel p-5"
-      >
+      <div role="note" className="flex flex-col gap-2 border border-brass/60 bg-panel p-5">
         <p className="caption text-brass">{t("checkout.payment.demoTitle")}</p>
         <p className="text-sm leading-relaxed text-cream-2">{t("checkout.payment.demoText")}</p>
       </div>
@@ -150,7 +147,12 @@ export function PaymentForm({ totalLabel, processing, onSubmit, onBack }: Props)
       </fieldset>
 
       <div className="flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <button type="button" onClick={onBack} disabled={processing} className="link-line self-start text-sm text-cream-2 hover:text-cream">
+        <button
+          type="button"
+          onClick={onBack}
+          disabled={processing}
+          className="link-line self-start text-sm text-cream-2 hover:text-cream"
+        >
           {t("checkout.payment.back")}
         </button>
         <button type="submit" disabled={processing} className="btn btn-primary sm:min-w-56" aria-busy={processing}>

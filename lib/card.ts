@@ -30,7 +30,9 @@ export function luhnCheck(digits: string): boolean {
 
 /** "4242424242424242" -> "4242 4242 4242 4242" */
 export function formatCardNumber(value: string): string {
-  return digitsOnly(value).slice(0, 16).replace(/(\d{4})(?=\d)/g, "$1 ");
+  return digitsOnly(value)
+    .slice(0, 16)
+    .replace(/(\d{4})(?=\d)/g, "$1 ");
 }
 
 /** "1229" -> "12/29" */

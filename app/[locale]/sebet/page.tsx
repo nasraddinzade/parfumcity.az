@@ -10,7 +10,13 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const dict = getDictionary(locale);
-  return pageMetadata({ locale, path: "/sebet", title: dict.meta.cart.title, description: dict.meta.cart.description, noIndex: true });
+  return pageMetadata({
+    locale,
+    path: "/sebet",
+    title: dict.meta.cart.title,
+    description: dict.meta.cart.description,
+    noIndex: true,
+  });
 }
 
 export default function Page() {

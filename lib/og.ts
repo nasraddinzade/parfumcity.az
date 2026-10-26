@@ -2,9 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import type { ImageResponse } from "next/og";
 
-type Font = NonNullable<
-  ConstructorParameters<typeof ImageResponse>[1]
->["fonts"] extends (infer F)[] | undefined
+type Font = NonNullable<ConstructorParameters<typeof ImageResponse>[1]>["fonts"] extends (infer F)[] | undefined
   ? F
   : never;
 

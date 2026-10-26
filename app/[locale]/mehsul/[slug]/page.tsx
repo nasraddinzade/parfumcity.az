@@ -125,13 +125,17 @@ export default async function ProductPage({ params }: { params: Params }) {
                         aria-current={current ? "page" : undefined}
                         className={cn(
                           "flex min-h-11 flex-col items-center justify-center border px-4 text-xs leading-tight transition-colors duration-300",
-                          current ? "border-cream bg-cream text-ink" : "border-line-strong text-cream-2 hover:border-cream hover:text-cream",
+                          current
+                            ? "border-cream bg-cream text-ink"
+                            : "border-line-strong text-cream-2 hover:border-cream hover:text-cream",
                         )}
                       >
                         <span>
                           {v.volumeMl} {t("common.ml")}
                         </span>
-                        <span className={current ? "text-ink/70" : "text-cream-3"}>{formatPrice(v.priceAzn, locale)}</span>
+                        <span className={current ? "text-ink/70" : "text-cream-3"}>
+                          {formatPrice(v.priceAzn, locale)}
+                        </span>
                       </Link>
                     </li>
                   );
@@ -155,7 +159,12 @@ export default async function ProductPage({ params }: { params: Params }) {
                 <dt className="text-sm">{t("product.deliveryWolt")}</dt>
                 <dd className="text-sm text-cream-3">
                   {t("product.deliveryWoltText")}{" "}
-                  <a href={site.wolt} target="_blank" rel="noopener noreferrer" className="link-line text-cream-2 hover:text-cream">
+                  <a
+                    href={site.wolt}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-line text-cream-2 hover:text-cream"
+                  >
                     Wolt
                   </a>
                 </dd>

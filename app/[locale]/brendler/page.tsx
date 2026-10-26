@@ -13,7 +13,12 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const dict = getDictionary(locale);
-  return pageMetadata({ locale, path: "/brendler", title: dict.meta.brands.title, description: dict.meta.brands.description });
+  return pageMetadata({
+    locale,
+    path: "/brendler",
+    title: dict.meta.brands.title,
+    description: dict.meta.brands.description,
+  });
 }
 
 export default async function BrandsPage({ params }: { params: Params }) {

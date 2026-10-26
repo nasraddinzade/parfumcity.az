@@ -47,8 +47,18 @@ export function ContactForm({ defaultValues, onSubmit }: Props) {
   const err = (key?: string) => (key ? t("checkout.errors." + key) : undefined);
 
   const methods: { value: ContactData["method"]; label: string; text: string; price: string }[] = [
-    { value: "pickup", label: t("checkout.contact.pickup"), text: t("checkout.contact.pickupText"), price: t("cart.free") },
-    { value: "wolt", label: t("checkout.contact.wolt"), text: t("checkout.contact.woltText"), price: formatPrice(0.49, locale) },
+    {
+      value: "pickup",
+      label: t("checkout.contact.pickup"),
+      text: t("checkout.contact.pickupText"),
+      price: t("cart.free"),
+    },
+    {
+      value: "wolt",
+      label: t("checkout.contact.wolt"),
+      text: t("checkout.contact.woltText"),
+      price: formatPrice(0.49, locale),
+    },
     { value: "courier", label: t("checkout.contact.courier"), text: t("checkout.contact.courierText"), price: "—" },
   ];
 
@@ -149,7 +159,13 @@ export function ContactForm({ defaultValues, onSubmit }: Props) {
         <label htmlFor="note" className="caption text-cream-3">
           {t("checkout.contact.note")}
         </label>
-        <textarea id="note" rows={2} placeholder={t("checkout.contact.notePlaceholder")} className="field resize-none" {...register("note")} />
+        <textarea
+          id="note"
+          rows={2}
+          placeholder={t("checkout.contact.notePlaceholder")}
+          className="field resize-none"
+          {...register("note")}
+        />
       </div>
 
       <button type="submit" className="btn btn-primary self-start">

@@ -12,7 +12,12 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const dict = getDictionary(locale);
-  return pageMetadata({ locale, path: "/butik", title: dict.meta.boutique.title, description: dict.meta.boutique.description });
+  return pageMetadata({
+    locale,
+    path: "/butik",
+    title: dict.meta.boutique.title,
+    description: dict.meta.boutique.description,
+  });
 }
 
 export default async function BoutiquePage({ params }: { params: Params }) {
@@ -44,7 +49,12 @@ export default async function BoutiquePage({ params }: { params: Params }) {
       value: (
         <>
           <span className="block">{t("boutique.woltValue")}</span>
-          <a href={site.wolt} target="_blank" rel="noopener noreferrer" className="link-line text-sm text-cream-2 hover:text-cream">
+          <a
+            href={site.wolt}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-line text-sm text-cream-2 hover:text-cream"
+          >
             wolt.com
           </a>
         </>
@@ -56,7 +66,12 @@ export default async function BoutiquePage({ params }: { params: Params }) {
     <div className="container-x py-12 md:py-16">
       <div className="grid gap-12 md:grid-cols-[1fr_1fr] md:gap-20">
         <div className="flex flex-col gap-8">
-          <SectionHeading as="h1" eyebrow={t("boutique.eyebrow")} title={t("boutique.title")} text={t("boutique.intro")} />
+          <SectionHeading
+            as="h1"
+            eyebrow={t("boutique.eyebrow")}
+            title={t("boutique.title")}
+            text={t("boutique.intro")}
+          />
           <div className="flex flex-col gap-5 text-pretty text-lg leading-relaxed text-cream-2">
             <p>{t("boutique.text1")}</p>
             <p>{t("boutique.text2")}</p>

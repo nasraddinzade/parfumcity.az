@@ -99,17 +99,27 @@ export function Catalog() {
   if (query.segment)
     chips.push({ key: "seg", label: t("common." + query.segment), remove: () => update({ segment: null }) });
   for (const b of query.brands)
-    chips.push({ key: "b" + b, label: brandName.get(b) ?? b, remove: () => update({ brands: query.brands.filter((x) => x !== b) }) });
+    chips.push({
+      key: "b" + b,
+      label: brandName.get(b) ?? b,
+      remove: () => update({ brands: query.brands.filter((x) => x !== b) }),
+    });
   for (const v of query.volumes)
-    chips.push({ key: "v" + v, label: v + " " + t("common.ml"), remove: () => update({ volumes: query.volumes.filter((x) => x !== v) }) });
+    chips.push({
+      key: "v" + v,
+      label: v + " " + t("common.ml"),
+      remove: () => update({ volumes: query.volumes.filter((x) => x !== v) }),
+    });
   for (const c of query.concentrations)
     chips.push({
       key: "c" + c,
       label: c === "Digər" ? t("common.concentration.Digər") : c,
       remove: () => update({ concentrations: query.concentrations.filter((x) => x !== c) }),
     });
-  if (query.min !== null) chips.push({ key: "min", label: "≥ " + query.min + " ₼", remove: () => update({ min: null }) });
-  if (query.max !== null) chips.push({ key: "max", label: "≤ " + query.max + " ₼", remove: () => update({ max: null }) });
+  if (query.min !== null)
+    chips.push({ key: "min", label: "≥ " + query.min + " ₼", remove: () => update({ min: null }) });
+  if (query.max !== null)
+    chips.push({ key: "max", label: "≤ " + query.max + " ₼", remove: () => update({ max: null }) });
 
   const filterProps = { query, onChange: update, onClear: () => navigate(emptyQuery), activeCount };
 
@@ -186,7 +196,11 @@ export function Catalog() {
               </li>
             ))}
             <li>
-              <button type="button" onClick={() => navigate(emptyQuery)} className="link-line min-h-8 text-xs text-cream-3 hover:text-cream">
+              <button
+                type="button"
+                onClick={() => navigate(emptyQuery)}
+                className="link-line min-h-8 text-xs text-cream-3 hover:text-cream"
+              >
                 {t("catalog.clearFilters")}
               </button>
             </li>
@@ -205,7 +219,9 @@ export function Catalog() {
           <>
             <ProductGrid products={shown} columns={3} priorityCount={4} />
             <div className="mt-14 flex flex-col items-center gap-4">
-              <p className="text-xs text-cream-3">{t("catalog.showing", { shown: shownCount, total: results.length })}</p>
+              <p className="text-xs text-cream-3">
+                {t("catalog.showing", { shown: shownCount, total: results.length })}
+              </p>
               {shownCount < results.length && (
                 <button
                   type="button"

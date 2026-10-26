@@ -25,7 +25,12 @@ export function OrderView({ orderId }: { orderId: string }) {
   if (state.status === "missing") {
     return (
       <div className="container-x py-12 md:py-16">
-        <SectionHeading as="h1" eyebrow={t("order.eyebrow")} title={t("order.notFound")} text={t("order.notFoundText")} />
+        <SectionHeading
+          as="h1"
+          eyebrow={t("order.eyebrow")}
+          title={t("order.notFound")}
+          text={t("order.notFoundText")}
+        />
         <Link href={"/" + locale + "/kolleksiya"} className="btn btn-outline mt-8">
           {t("order.continue")}
         </Link>
@@ -47,7 +52,9 @@ export function OrderView({ orderId }: { orderId: string }) {
         </p>
       </SectionHeading>
 
-      <p className="mt-8 max-w-2xl border border-brass/50 bg-panel p-5 text-sm leading-relaxed text-cream-2">{t("order.demoNote")}</p>
+      <p className="mt-8 max-w-2xl border border-brass/50 bg-panel p-5 text-sm leading-relaxed text-cream-2">
+        {t("order.demoNote")}
+      </p>
 
       <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_360px] lg:gap-16">
         <div>

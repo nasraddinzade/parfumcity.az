@@ -14,7 +14,12 @@ export default function ErrorPage({ error, reset }: { error: Error & { digest?: 
 
   return (
     <div className="container-x flex min-h-[60vh] flex-col justify-center py-16">
-      <SectionHeading as="h1" eyebrow={t("errors.errorEyebrow")} title={t("errors.errorTitle")} text={t("errors.errorText")} />
+      <SectionHeading
+        as="h1"
+        eyebrow={t("errors.errorEyebrow")}
+        title={t("errors.errorTitle")}
+        text={t("errors.errorText")}
+      />
       <div className="mt-8 flex flex-wrap gap-4">
         <button type="button" onClick={reset} className="btn btn-primary">
           {t("errors.retry")}

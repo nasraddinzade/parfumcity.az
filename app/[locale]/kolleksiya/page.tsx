@@ -13,7 +13,12 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const dict = getDictionary(locale);
-  return pageMetadata({ locale, path: "/kolleksiya", title: dict.meta.catalog.title, description: dict.meta.catalog.description });
+  return pageMetadata({
+    locale,
+    path: "/kolleksiya",
+    title: dict.meta.catalog.title,
+    description: dict.meta.catalog.description,
+  });
 }
 
 export default async function CatalogPage({ params }: { params: Params }) {

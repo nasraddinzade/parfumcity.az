@@ -34,9 +34,7 @@ export function OgFrame({ eyebrow, title, subtitle, footer, children }: Props) {
           alignItems: "center",
         }}
       >
-        <div style={{ fontFamily: display, fontSize: 40, letterSpacing: 2 }}>
-          Parfum City
-        </div>
+        <div style={{ fontFamily: display, fontSize: 40, letterSpacing: 2 }}>Parfum City</div>
         <div
           style={{
             fontSize: 20,
@@ -73,11 +71,7 @@ export function OgFrame({ eyebrow, title, subtitle, footer, children }: Props) {
           >
             {title}
           </div>
-          {subtitle && (
-            <div style={{ fontSize: 28, color: ogColors.cream2 }}>
-              {subtitle}
-            </div>
-          )}
+          {subtitle && <div style={{ fontSize: 28, color: ogColors.cream2 }}>{subtitle}</div>}
         </div>
         {children}
       </div>

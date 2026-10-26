@@ -64,9 +64,12 @@ export function BrandGrid() {
               >
                 <p className="caption text-cream-3">{t("common." + b.segment)}</p>
                 <div className="flex flex-col gap-2">
-                  <p className="font-display text-xl leading-tight text-cream group-hover:text-brass-2 sm:text-2xl">{b.name}</p>
+                  <p className="font-display text-xl leading-tight text-cream group-hover:text-brass-2 sm:text-2xl">
+                    {b.name}
+                  </p>
                   <p className="text-xs text-cream-2">
-                    {t("common.productsCount", { count: b.count })} · {t("common.priceFrom", { price: formatPrice(min, locale) })}
+                    {t("common.productsCount", { count: b.count })} ·{" "}
+                    {t("common.priceFrom", { price: formatPrice(min, locale) })}
                   </p>
                 </div>
               </Link>

@@ -28,7 +28,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     locale,
     path: "/brendler/" + brand.slug,
     title: t("meta.brand.title", { brand: brand.name }),
-    description: t("meta.brand.description", { brand: brand.name, count: brand.count, priceFrom: formatPrice(min, locale) }),
+    description: t("meta.brand.description", {
+      brand: brand.name,
+      count: brand.count,
+      priceFrom: formatPrice(min, locale),
+    }),
   });
 }
 
@@ -39,10 +43,13 @@ export default async function BrandPage({ params }: { params: Params }) {
   if (!brand) notFound();
   const t = createTranslator(getDictionary(locale));
 
-  const list = [...getBrandProducts(brand.slug)].sort((a, b) => a.name.localeCompare(b.name, "en") || a.volumeMl - b.volumeMl);
+  const list = [...getBrandProducts(brand.slug)].sort(
+    (a, b) => a.name.localeCompare(b.name, "en") || a.volumeMl - b.volumeMl,
+  );
   const { min, max } = getPriceRange(list);
   const concentrations = [...new Set(list.map((p) => p.concentration))];
-  const description = getBrandDescription(brand.slug, locale) ?? t("brand.genericDescription", { brand: brand.name, count: brand.count });
+  const description =
+    getBrandDescription(brand.slug, locale) ?? t("brand.genericDescription", { brand: brand.name, count: brand.count });
 
   return (
     <div className="container-x py-12 md:py-16">
@@ -74,7 +81,9 @@ export default async function BrandPage({ params }: { params: Params }) {
           </div>
           <div>
             <dt className="caption mb-1 text-cream-3">{t("brand.concentrations")}</dt>
-            <dd className="text-sm text-cream-2">{concentrations.map((c) => (c === "Digər" ? t("common.concentration.Digər") : c)).join(" · ")}</dd>
+            <dd className="text-sm text-cream-2">
+              {concentrations.map((c) => (c === "Digər" ? t("common.concentration.Digər") : c)).join(" · ")}
+            </dd>
           </div>
         </dl>
       </header>
@@ -82,7 +91,10 @@ export default async function BrandPage({ params }: { params: Params }) {
       <ProductGrid products={list} className="mt-12" priorityCount={4} />
 
       <div className="mt-16 flex justify-center">
-        <Link href={"/" + locale + "/brendler"} className="caption link-line flex items-center gap-2 text-cream-2 hover:text-cream">
+        <Link
+          href={"/" + locale + "/brendler"}
+          className="caption link-line flex items-center gap-2 text-cream-2 hover:text-cream"
+        >
           <ArrowIcon size={14} className="rotate-180" />
           {t("brand.allBrands")}
         </Link>

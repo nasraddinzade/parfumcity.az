@@ -8,7 +8,12 @@ export default function NotFound() {
   const { locale, t } = useI18n();
   return (
     <div className="container-x flex min-h-[60vh] flex-col justify-center py-16">
-      <SectionHeading as="h1" eyebrow={t("errors.notFoundEyebrow")} title={t("errors.notFoundTitle")} text={t("errors.notFoundText")} />
+      <SectionHeading
+        as="h1"
+        eyebrow={t("errors.notFoundEyebrow")}
+        title={t("errors.notFoundTitle")}
+        text={t("errors.notFoundText")}
+      />
       <div className="mt-8 flex flex-wrap gap-4">
         <Link href={"/" + locale} className="btn btn-primary">
           {t("errors.backHome")}

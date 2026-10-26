@@ -83,14 +83,20 @@ export function Checkout() {
     <div ref={topRef} className="container-x scroll-mt-24 py-12 md:py-16">
       <SectionHeading as="h1" eyebrow={t("checkout.eyebrow")} title={t("checkout.title")} />
 
-      <ol className="mt-10 flex flex-wrap gap-x-8 gap-y-2 border-b border-line pb-5" aria-label={t("checkout.stepLabel", { step })}>
+      <ol
+        className="mt-10 flex flex-wrap gap-x-8 gap-y-2 border-b border-line pb-5"
+        aria-label={t("checkout.stepLabel", { step })}
+      >
         {steps.map((label, i) => {
           const n = (i + 1) as 1 | 2 | 3;
           return (
             <li
               key={label}
               aria-current={n === step ? "step" : undefined}
-              className={cn("caption flex items-center gap-3", n === step ? "text-cream" : n < step ? "text-brass" : "text-cream-3")}
+              className={cn(
+                "caption flex items-center gap-3",
+                n === step ? "text-cream" : n < step ? "text-brass" : "text-cream-3",
+              )}
             >
               <span className="font-display text-base normal-case tracking-normal">{n}</span>
               {label}

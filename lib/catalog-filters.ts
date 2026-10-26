@@ -94,11 +94,7 @@ export function countActiveFilters(q: CatalogQuery): number {
 }
 
 function normalize(s: string): string {
-  return s
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/[''`]/g, "");
+  return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[''`]/g, "");
 }
 
 /** Precomputed search text per product; built once per module load. */

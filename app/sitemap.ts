@@ -18,7 +18,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const { path, priority, changeFrequency } of paths) {
     const languages = languageAlternates(path);
     for (const locale of locales) {
-      entries.push({ url: localeUrl(locale, path), lastModified, changeFrequency, priority, alternates: { languages } });
+      entries.push({
+        url: localeUrl(locale, path),
+        lastModified,
+        changeFrequency,
+        priority,
+        alternates: { languages },
+      });
     }
   }
   return entries;

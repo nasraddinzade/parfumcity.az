@@ -11,11 +11,7 @@ export const alt = "Parfum City";
 export const size = ogSize;
 export const contentType = "image/png";
 
-export default async function Image({
-  params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}) {
+export default async function Image({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale: raw, slug } = await params;
   const locale = isLocale(raw) ? raw : "az";
   const dict = getDictionary(locale);
@@ -33,15 +29,8 @@ export default async function Image({
   const fonts = await ogFonts();
 
   return new ImageResponse(
-    <OgFrame
-      eyebrow={eyebrow}
-      title={title}
-      subtitle={subtitle}
-      footer={footer}
-    >
-      {product && (
-        <OgBottle brand={product.brand} initial={product.brand.charAt(0)} />
-      )}
+    <OgFrame eyebrow={eyebrow} title={title} subtitle={subtitle} footer={footer}>
+      {product && <OgBottle brand={product.brand} initial={product.brand.charAt(0)} />}
     </OgFrame>,
     { ...size, fonts },
   );

@@ -16,7 +16,12 @@ export function SectionHeading({ eyebrow, title, text, as = "h2", align = "left"
   return (
     <div className={cn("flex flex-col gap-4", align === "center" && "items-center text-center", className)}>
       {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-      <Tag className={cn("font-display text-balance", as === "h1" ? "text-4xl sm:text-5xl lg:text-6xl" : "text-3xl sm:text-4xl")}>
+      <Tag
+        className={cn(
+          "font-display text-balance",
+          as === "h1" ? "text-4xl sm:text-5xl lg:text-6xl" : "text-3xl sm:text-4xl",
+        )}
+      >
         {title}
       </Tag>
       {text && <p className="max-w-xl text-pretty text-cream-2">{text}</p>}

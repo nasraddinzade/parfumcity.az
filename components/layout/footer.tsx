@@ -41,7 +41,12 @@ export function Footer({ locale }: { locale: Locale }) {
             <a href={site.phoneHref} className="link-line w-fit hover:text-cream">
               {site.phone}
             </a>
-            <a href={site.instagram} target="_blank" rel="noopener noreferrer" className="link-line w-fit hover:text-cream">
+            <a
+              href={site.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-line w-fit hover:text-cream"
+            >
               Instagram {site.instagramHandle}
             </a>
             <a href={site.wolt} target="_blank" rel="noopener noreferrer" className="link-line w-fit hover:text-cream">

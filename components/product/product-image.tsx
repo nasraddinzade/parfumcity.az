@@ -51,7 +51,11 @@ export function ProductImage({ product, sizes, priority = false, className }: Pr
           onError={() => setFailedSrc(resolved.src)}
         />
       ) : (
-        <BottlePlaceholder brand={product.brand} label={alt} className="transition-transform duration-700 ease-soft group-hover:scale-[1.03]" />
+        <BottlePlaceholder
+          brand={product.brand}
+          label={alt}
+          className="transition-transform duration-700 ease-soft group-hover:scale-[1.03]"
+        />
       )}
     </div>
   );
