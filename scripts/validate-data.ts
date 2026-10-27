@@ -3,7 +3,7 @@
  * Runs once before `next build` (see the `prebuild` script) so that the app
  * can import the JSON files as typed data without parsing them at runtime.
  */
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { productsSchema, brandsSchema } from "../lib/schemas";
 
@@ -39,6 +39,32 @@ for (const p of products) {
 for (const b of brands) {
   const actual = counts.get(b.slug) ?? 0;
   if (actual !== b.count) errors.push("brand " + b.slug + " count " + b.count + " but " + actual + " products found");
+  if (actual === 0) errors.push("brand " + b.slug + " has no products");
+}
+
+// Every product must have a photo, and every mapped file must exist.
+const images = readJson("product-images.json") as Record<string, string>;
+for (const p of products) {
+  const src = p.image ?? images[p.slug];
+  if (!src) errors.push("product " + p.slug + " has no photo");
+  else if (src.startsWith("/") && !existsSync(resolve(root, "public", "." + src))) {
+    errors.push("product " + p.slug + " photo file missing: " + src);
+  }
+}
+for (const slug of Object.keys(images)) {
+  if (!slugs.has(slug)) errors.push("photo mapped to unknown product " + slug);
+}
+
+// Texts quote these figures through {brands}/{products}/{min}/{max}; keep them in sync.
+const stats = readJson("catalog-stats.json") as Record<string, number>;
+const expected = {
+  brands: brands.length,
+  products: products.length,
+  min: Math.min(...products.map((p) => p.priceAzn)),
+  max: Math.max(...products.map((p) => p.priceAzn)),
+};
+for (const [k, v] of Object.entries(expected)) {
+  if (stats[k] !== v) errors.push("catalog-stats.json " + k + " is " + stats[k] + " but the catalogue gives " + v);
 }
 
 if (errors.length > 0) {

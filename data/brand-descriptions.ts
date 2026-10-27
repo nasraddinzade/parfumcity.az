@@ -81,11 +81,6 @@ export const brandDescriptions: Partial<Record<string, Record<Locale, string>>> 
     ru: "Парижский дом, вдохновлённый путешествиями: каждый аромат — память о месте. Irish Leather, African Leather, Marfa.",
     en: "A Paris house inspired by travel: each scent is the memory of a place — Irish Leather, African Leather, Marfa.",
   },
-  orlov: {
-    az: "Orlov Paris — adını məşhur Orlov almazından alan niş ev. Qiymətli daşlara həsr olunmuş kolleksiya.",
-    ru: "Orlov Paris — нишевый дом, названный в честь знаменитого бриллианта Орлова. Коллекция посвящена драгоценным камням.",
-    en: "Orlov Paris, a niche house named after the famous Orlov diamond. A collection devoted to precious stones.",
-  },
   prada: {
     az: "Milan, 1913. Luna Rossa, Paradoxe və Candy — dəqiq, müasir dizayner parfümeriyası.",
     ru: "Милан, 1913 год. Luna Rossa, Paradoxe и Candy — точная, современная дизайнерская парфюмерия.",
@@ -95,11 +90,6 @@ export const brandDescriptions: Partial<Record<string, Record<Locale, string>>> 
     az: "Roja Dove-un London evi. Yüksək konsentrasiya, təbii inqrediyentlər və barokko flakonlar — Enigma, Elysium, Danger.",
     ru: "Лондонский дом Роджи Дава. Высокая концентрация, натуральные ингредиенты и барочные флаконы — Enigma, Elysium, Danger.",
     en: "Roja Dove's London house. High concentration, natural materials and baroque bottles — Enigma, Elysium, Danger.",
-  },
-  sospiro: {
-    az: "Xerjoff-un musiqi və opera dünyasından ilhamlanan kolleksiyası: Erba Pura, Accento, Opera.",
-    ru: "Коллекция Xerjoff, вдохновлённая миром музыки и оперы: Erba Pura, Accento, Opera.",
-    en: "Xerjoff's collection inspired by the world of music and opera: Erba Pura, Accento, Opera.",
   },
   thameen: {
     az: "London niş evi. Hər ətir əfsanəvi bir daş-qaşa həsr olunub — Regent, Cullinan Diamond, Peregrina.",

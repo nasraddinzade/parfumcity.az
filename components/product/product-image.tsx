@@ -35,7 +35,7 @@ export function ProductImage({ product, sizes, priority = false, className }: Pr
 
   return (
     <div
-      className={cn("relative aspect-[3/4] w-full overflow-hidden", className)}
+      className={cn("relative aspect-[4/5] w-full overflow-hidden", className)}
       style={
         { "--h": String(brandHue(product.brand)), backgroundColor: "hsl(var(--h) var(--flacon-bg))" } as CSSProperties
       }
@@ -44,8 +44,8 @@ export function ProductImage({ product, sizes, priority = false, className }: Pr
         <Image
           src={resolved.src}
           alt={alt}
-          width={600}
-          height={800}
+          width={800}
+          height={1000}
           sizes={sizes}
           priority={priority}
           placeholder="blur"

@@ -1,41 +1,31 @@
 /**
- * Image map for products and brands.
+ * Product photos.
+ *
+ * `product-images.json` maps every product slug to a 4:5 WebP under
+ * /public/images/p. The photos come from the boutique's own Wolt listing and,
+ * where Wolt had none, from the brands' official websites (see
+ * public/images/CREDITS.md). Products without any photo were removed from the
+ * catalogue.
  *
  * Priority when rendering a product:
- *   1. productImages[product.slug]
- *   2. brandImages[product.brandSlug]
- *   3. generated placeholder (components/product/product-image.tsx)
+ *   1. product.image from data/products.json (null today)
+ *   2. productImages[product.slug]
+ *   3. brandImages[product.brandSlug]
+ *   4. the code-drawn flacon (components/product/product-image.tsx), also used
+ *      when a photo fails to load
  *
- * A value can be a path under /public (e.g. "/images/products/x.jpg") or an
- * absolute https URL. Every external host must be listed in `imageHosts`,
- * which feeds `images.remotePatterns` in next.config.ts. External hosts often
- * refuse hotlinking, so <ProductImage> falls back to the drawn flacon when a
- * request fails.
- *
- * The photos shipped with the concept are freely licensed placeholders from
- * Wikimedia Commons (see public/images/CREDITS.md). Replace them with the
- * boutique's own photography when it arrives.
+ * To use the boutique's own photography later, drop files into /public/images
+ * and point the slugs at them here, or set absolute URLs and add their host to
+ * `imageHosts`, which feeds `images.remotePatterns` in next.config.ts.
  */
+import productImageMap from "@/data/product-images.json";
 
-export const productImages: Record<string, string> = {
-  "armani-acqua-di-gio-edt-30": "/images/products/armani-acqua-di-gio.jpg",
-  "armani-acqua-di-gio-edt-50": "/images/products/armani-acqua-di-gio.jpg",
-  "guerlain-shalimar-edp-50": "/images/products/guerlain-shalimar.jpg",
-  "guerlain-shalimar-edp-90": "/images/products/guerlain-shalimar.jpg",
-};
+export const productImages: Record<string, string> = productImageMap;
 
-export const brandImages: Record<string, string> = {
-  armani: "/images/brands/armani.jpg",
-  byredo: "/images/brands/byredo.jpg",
-  guerlain: "/images/products/guerlain-shalimar.jpg",
-  prada: "/images/brands/prada.jpg",
-};
+/** Optional shared photo per brand; empty while every product has its own. */
+export const brandImages: Record<string, string> = {};
 
-/**
- * External hosts allowed for next/image. Add the host of any absolute URL you
- * put in the maps above (a CDN, the boutique's own storage, Instagram proxy…).
- */
-export const imageHosts: readonly string[] = ["upload.wikimedia.org"];
+export { imageHosts } from "@/data/image-hosts";
 
 export type ResolvedImage = { kind: "product" | "brand"; src: string } | { kind: "placeholder"; src: null };
 

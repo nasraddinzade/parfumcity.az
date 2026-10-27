@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import { imageHosts } from "./data/images";
+import { imageHosts } from "./data/image-hosts";
 
 const ogFonts = ["./assets/fonts/*.woff"];
 

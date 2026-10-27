@@ -13,7 +13,7 @@ Bu, butikin rəsmi saytı deyil: butikin öz saytı yoxdur, konsept soyuq təkli
 ### Nə var
 
 - 3 dil: `/az` (əsas), `/ru`, `/en`. Kök ünvan `/` seçilmiş dilə yönləndirilir (seçim `NEXT_LOCALE` cookie-də saxlanılır).
-- 33 brend və 590 mövqe — `data/products.json` və `data/brands.json` faylından, dəyişdirilmədən.
+- 29 brend və 486 mövqe — `data/products.json` və `data/brands.json`. Butikin ilkin kataloqunda 33 brend və 590 mövqe var idi; foto tapılmayan 104 mövqe çıxarılıb (aşağıya bax). Qalan qiymət və adlar dəyişdirilməyib.
 - Kataloq: axtarış, brend / həcm / konsentrasiya / seqment / qiymət filtrləri, sıralama, 24-lük yükləmə. Filtrlər URL-də saxlanılır, link göndərmək olar.
 - Məhsul səhifəsi: eyni ətrin başqa həcmləri, səbət, çatdırılma bloku, eyni brenddən oxşar ətirlər.
 - Səbət: `localStorage`-da saxlanılır, sağdan açılan panel, başlıqda sayğac.
@@ -39,30 +39,27 @@ Kod Vercel-ə bağlı deyil: istənilən Node.js hostinqdə `next build && next 
 
 | Fayl                         | Məzmun                                                                |
 | ---------------------------- | --------------------------------------------------------------------- |
-| `data/products.json`         | 590 mövqe (id, slug, brend, ad, həcm, konsentrasiya, qiymət, seqment) |
-| `data/brands.json`           | 33 brend (ad, slug, seqment, mövqe sayı)                              |
+| `data/products.json`         | 486 mövqe (id, slug, brend, ad, həcm, konsentrasiya, qiymət, seqment) |
+| `data/brands.json`           | 29 brend (ad, slug, seqment, mövqe sayı)                              |
+| `data/product-images.json`   | Hər mövqe üçün foto yolu (`/images/p/*.webp`)                         |
+| `data/catalog-stats.json`    | Mətnlərdəki rəqəmlər: brend və mövqe sayı, min/maks qiymət            |
 | `data/brand-descriptions.ts` | Brend səhifələri üçün qısa mətnlər (3 dildə)                          |
-| `data/images.ts`             | Şəkil xəritəsi (aşağıya bax)                                          |
 | `messages/*.json`            | İnterfeys tərcümələri                                                 |
 | `types/product.ts`           | Tiplər; `lib/schemas.ts` — zod sxemləri                               |
 
-`npm run build` zamanı `scripts/validate-data.ts` məlumatları zod ilə yoxlayır: slug-ların unikallığı, brend sayları, sahə tipləri. Səhv varsa build dayanır.
+`npm run build` zamanı `scripts/validate-data.ts` məlumatları zod ilə yoxlayır: slug-ların unikallığı, brend sayları, sahə tipləri, hər mövqenin fotosu və `catalog-stats.json`-un kataloqa uyğunluğu. Səhv varsa build dayanır. Mətnlərdə rəqəmlər `{brands}`, `{products}`, `{min}`, `{max}` kimi yazılır və avtomatik doldurulur.
 
-### Şəkilləri necə əvəz etmək
+### Fotolar
 
-Hazırda `products.json`-da `image` sahəsi `null`-dur. Şəkillər `data/images.ts` faylından götürülür:
+Hər mövqenin fotosu var: 800×1000 WebP, `public/images/p/`, xəritə `data/product-images.json`-da.
 
-1. `productImages["<slug>"]` — konkret məhsulun şəkli;
-2. yoxdursa `brandImages["<brandSlug>"]` — brendin ümumi şəkli;
-3. o da yoxdursa — kodla çəkilmiş flakon (rəng brend adından hesablanır).
+- 337 foto butikin Wolt səhifəsindən götürülüb — bunlar butikin öz studiya şəkilləridir.
+- 149 foto brendlərin rəsmi saytlarındandır (Tom Ford, Xerjoff, Roja, Thameen, Vilhelm, Memo, Scentologia, Widian, Zilli, YSL, Prada).
+- Heç bir mənbədə studiya fotosu tapılmayan 104 mövqe kataloqdan çıxarılıb. Tamamilə çıxan brendlər: Moudon, Orlov, Paradis des Sens, Sospiro.
 
-Butik öz fotolarını göndərəndə:
+Fotolar butikə və brendlərə məxsusdur, burada yalnız konsepti göstərmək üçün istifadə olunur (`public/images/CREDITS.md`).
 
-- faylları `public/images/products/` və ya `public/images/brands/` qovluğuna qoyun və `data/images.ts`-də `"/images/..."` yolunu yazın; **və ya**
-- xarici link yazın (CDN, öz hostinq) və host adını həmin faylda `imageHosts` siyahısına əlavə edin — o, `next.config.ts`-dəki `images.remotePatterns`-ə ötürülür.
-
-Xarici link yüklənməsə, `<ProductImage>` səssizcə çəkilmiş flakona keçir — şəbəkə pozulmur.
-Hazırkı 5 foto Wikimedia Commons-dan götürülmüş müvəqqəti nümunələrdir (`public/images/CREDITS.md`).
+Butik öz fotolarını göndərəndə faylları `public/images/p/` qovluğuna qoyun və `data/product-images.json`-da yolu dəyişin. Xarici link də olar — onda host adını `data/images.ts`-dəki `imageHosts`-a əlavə edin. Foto yüklənməsə, `<ProductImage>` səssizcə kodla çəkilmiş flakonu göstərir.
 
 ### Ödəniş imitasiyası
 
@@ -82,7 +79,7 @@ Next.js 15 (App Router, TypeScript strict), Tailwind CSS v4 (`@theme` tokenləri
 ### Что есть
 
 - 3 языка: `/az` (по умолчанию), `/ru`, `/en`. Корень `/` редиректит на выбранный язык (выбор хранится в cookie `NEXT_LOCALE`).
-- 33 бренда и 590 позиций из `data/products.json` и `data/brands.json`, без изменений.
+- 29 брендов и 486 позиций в `data/products.json` и `data/brands.json`. В исходном каталоге бутика было 33 бренда и 590 позиций; 104 позиции без фото удалены (см. ниже). Цены и названия оставшихся не менялись.
 - Каталог: поиск, фильтры по бренду / объёму / концентрации / сегменту / цене, сортировка, подгрузка по 24. Состояние фильтров живёт в URL, ссылку можно отправить.
 - Карточка товара: другие объёмы того же аромата, корзина, блок доставки, похожие ароматы бренда.
 - Корзина в `localStorage`, выезжающая панель справа, счётчик в шапке.
@@ -108,30 +105,27 @@ npm run typecheck
 
 | Файл                         | Содержимое                                                                  |
 | ---------------------------- | --------------------------------------------------------------------------- |
-| `data/products.json`         | 590 позиций (id, slug, бренд, название, объём, концентрация, цена, сегмент) |
-| `data/brands.json`           | 33 бренда (название, slug, сегмент, количество позиций)                     |
+| `data/products.json`         | 486 позиций (id, slug, бренд, название, объём, концентрация, цена, сегмент) |
+| `data/brands.json`           | 29 брендов (название, slug, сегмент, количество позиций)                    |
+| `data/product-images.json`   | Путь к фото для каждой позиции (`/images/p/*.webp`)                         |
+| `data/catalog-stats.json`    | Числа для текстов: брендов, позиций, минимальная и максимальная цена        |
 | `data/brand-descriptions.ts` | Короткие тексты для страниц брендов (3 языка)                               |
-| `data/images.ts`             | Карта картинок (см. ниже)                                                   |
 | `messages/*.json`            | Переводы интерфейса                                                         |
 | `types/product.ts`           | Типы; `lib/schemas.ts` — схемы zod                                          |
 
-При `npm run build` скрипт `scripts/validate-data.ts` проверяет данные через zod: уникальность slug, счётчики брендов, типы полей. При ошибке сборка останавливается.
+При `npm run build` скрипт `scripts/validate-data.ts` проверяет данные через zod: уникальность slug, счётчики брендов, типы полей, наличие фото у каждой позиции и соответствие `catalog-stats.json` каталогу. При ошибке сборка останавливается. Числа в текстах записаны как `{brands}`, `{products}`, `{min}`, `{max}` и подставляются автоматически, а в русском тексте ещё и согласуются по падежу, например `{brands#бренд|бренда|брендов}`.
 
-### Как подменить фотографии
+### Фотографии
 
-Сейчас поле `image` в `products.json` равно `null`. Картинки берутся из `data/images.ts`:
+У каждой позиции есть фото: 800×1000 WebP в `public/images/p/`, соответствие в `data/product-images.json`.
 
-1. `productImages["<slug>"]` — фото конкретного товара;
-2. если нет — `brandImages["<brandSlug>"]`, общая картинка бренда;
-3. если и её нет — нарисованный кодом флакон (цвет выводится из названия бренда).
+- 337 фото взяты со страницы бутика на Wolt. Это собственные студийные снимки бутика.
+- 149 фото взяты с официальных сайтов брендов: Tom Ford, Xerjoff, Roja, Thameen, Vilhelm, Memo, Scentologia, Widian, Zilli, YSL, Prada.
+- 104 позиции, для которых ни в одном источнике не нашлось студийного фото, удалены из каталога. Целиком ушли бренды Moudon, Orlov, Paradis des Sens и Sospiro.
 
-Когда бутик пришлёт свои фото:
+Фото принадлежат бутику и брендам и используются только для показа концепта (`public/images/CREDITS.md`).
 
-- положите файлы в `public/images/products/` или `public/images/brands/` и укажите путь `"/images/..."` в `data/images.ts`; **или**
-- укажите внешнюю ссылку (CDN, свой хостинг) и добавьте хост в список `imageHosts` в том же файле — он попадает в `images.remotePatterns` в `next.config.ts`.
-
-Если внешняя ссылка не загрузилась, `<ProductImage>` молча показывает нарисованный флакон, сетка не ломается.
-Текущие 5 фото — временные примеры с Wikimedia Commons (`public/images/CREDITS.md`).
+Когда бутик пришлёт свои фото, положите файлы в `public/images/p/` и поменяйте пути в `data/product-images.json`. Можно указать и внешнюю ссылку, тогда добавьте её хост в `imageHosts` в `data/images.ts`. Если фото не загрузилось, `<ProductImage>` молча показывает нарисованный кодом флакон.
 
 ### Что именно имитируется в оплате
 

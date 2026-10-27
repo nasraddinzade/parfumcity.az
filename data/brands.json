@@ -3,7 +3,7 @@
     "name": "ARMANI",
     "slug": "armani",
     "segment": "designer",
-    "count": 42
+    "count": 41
   },
   {
     "name": "BOHEMIA",
@@ -21,7 +21,7 @@
     "name": "BYREDO",
     "slug": "byredo",
     "segment": "niche",
-    "count": 30
+    "count": 29
   },
   {
     "name": "CASAMORATI",
@@ -45,7 +45,7 @@
     "name": "ESSENTIAL PARFUMS",
     "slug": "essential-parfums",
     "segment": "niche",
-    "count": 37
+    "count": 24
   },
   {
     "name": "GERINI",
@@ -87,7 +87,7 @@
     "name": "JEAN PAUL GAULTIER",
     "slug": "jean-paul-gaultier",
     "segment": "designer",
-    "count": 13
+    "count": 12
   },
   {
     "name": "JULIETTE HAS A GUN",
@@ -99,61 +99,37 @@
     "name": "LANCOME",
     "slug": "lancome",
     "segment": "designer",
-    "count": 29
+    "count": 16
   },
   {
     "name": "MEMO PARIS",
     "slug": "memo-paris",
     "segment": "niche",
-    "count": 19
-  },
-  {
-    "name": "MOUDON",
-    "slug": "moudon",
-    "segment": "niche",
-    "count": 17
-  },
-  {
-    "name": "ORLOV",
-    "slug": "orlov",
-    "segment": "niche",
-    "count": 5
-  },
-  {
-    "name": "PARADIS DES SENS",
-    "slug": "paradis-des-sens",
-    "segment": "niche",
-    "count": 10
+    "count": 18
   },
   {
     "name": "PRADA",
     "slug": "prada",
     "segment": "designer",
-    "count": 12
+    "count": 10
   },
   {
     "name": "ROJA PARFUMS",
     "slug": "roja-parfums",
     "segment": "niche",
-    "count": 14
+    "count": 10
   },
   {
     "name": "SCENTOLOGIA",
     "slug": "scentologia",
     "segment": "niche",
-    "count": 8
-  },
-  {
-    "name": "SOSPIRO",
-    "slug": "sospiro",
-    "segment": "niche",
-    "count": 9
+    "count": 2
   },
   {
     "name": "THAMEEN",
     "slug": "thameen",
     "segment": "niche",
-    "count": 23
+    "count": 14
   },
   {
     "name": "TOM FORD",
@@ -171,19 +147,19 @@
     "name": "WIDIAN",
     "slug": "widian",
     "segment": "niche",
-    "count": 14
+    "count": 12
   },
   {
     "name": "XERJOFF",
     "slug": "xerjoff",
     "segment": "niche",
-    "count": 24
+    "count": 22
   },
   {
     "name": "YVES SAINT LAURENT",
     "slug": "yves-saint-laurent",
     "segment": "designer",
-    "count": 37
+    "count": 29
   },
   {
     "name": "ZILLI",
