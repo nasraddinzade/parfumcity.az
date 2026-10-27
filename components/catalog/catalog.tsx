@@ -143,7 +143,7 @@ export function Catalog() {
               autoComplete="off"
             />
           </label>
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2 sm:gap-6">
             <button
               type="button"
               onClick={() => setFiltersOpen(true)}
@@ -155,12 +155,12 @@ export function Catalog() {
               {t("catalog.filters")}
               {activeCount > 0 && <span className="text-brass">({activeCount})</span>}
             </button>
-            <label className="caption flex items-center gap-2 text-cream-3">
+            <label className="caption flex min-w-0 max-w-full items-center gap-2 text-cream-3">
               <span className="sr-only sm:not-sr-only">{t("catalog.sort")}</span>
               <select
                 value={query.sort}
                 onChange={(e) => update({ sort: e.target.value as SortKey })}
-                className="caption cursor-pointer border-b border-line-strong bg-transparent py-2 pr-1 text-cream focus:border-cream focus:outline-none"
+                className="caption min-w-0 max-w-full cursor-pointer border-b border-line-strong bg-transparent py-2 pr-1 text-cream focus:border-cream focus:outline-none"
               >
                 {SORT_KEYS.map((k) => (
                   <option key={k} value={k} className="bg-ink text-cream">
