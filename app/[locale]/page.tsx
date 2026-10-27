@@ -19,7 +19,12 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const dict = getDictionary(locale);
-  return pageMetadata({ locale, title: dict.meta.home.title, description: dict.meta.home.description, absolute: true });
+  return pageMetadata({
+    locale,
+    title: dict.meta.home.title,
+    description: createTranslator(dict)("meta.home.description"),
+    absolute: true,
+  });
 }
 
 function storeJsonLd(locale: Locale) {

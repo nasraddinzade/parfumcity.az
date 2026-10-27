@@ -5,6 +5,7 @@ import { brands, getBrand, getBrandProducts, getPriceRange } from "@/lib/catalog
 import { formatPrice } from "@/lib/format";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
+import { createTranslator } from "@/lib/i18n/t";
 import { ogFonts, ogSize } from "@/lib/og";
 
 export function generateStaticParams() {
@@ -19,16 +20,16 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
   const { locale: raw, brandSlug } = await params;
   const locale = isLocale(raw) ? raw : "az";
   const dict = getDictionary(locale);
+  const t = createTranslator(dict);
   const brand = getBrand(brandSlug);
   const title = brand ? brand.name : dict.meta.tagline;
   const eyebrow = brand ? dict.common[brand.segment] : "Parfum City";
   const subtitle = brand
-    ? dict.common.productsCount.replace("{count}", String(brand.count)) +
+    ? t("common.productsCount", { count: brand.count }) +
       " · " +
-      dict.common.priceFrom.replace(
-        "{price}",
-        formatPrice(getPriceRange(getBrandProducts(brand.slug)).min, locale).replace("₼", "AZN"),
-      )
+      t("common.priceFrom", {
+        price: formatPrice(getPriceRange(getBrandProducts(brand.slug)).min, locale).replace("₼", "AZN"),
+      })
     : undefined;
   const footer = dict.meta.tagline;
   const fonts = await ogFonts();

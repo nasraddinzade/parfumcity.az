@@ -1,18 +1,19 @@
 {
+  "locale": "en",
   "meta": {
     "siteName": "Parfum City",
     "tagline": "Niche and luxury perfumery in Baku",
     "home": {
       "title": "Parfum City — niche and luxury perfumery in Baku",
-      "description": "33 brands, 590 fragrances. Byredo, Xerjoff, Tom Ford, Roja Parfums and more. Nizami street 111, Baku. Delivery via Wolt."
+      "description": "{brands} brands, {products} fragrances. Byredo, Xerjoff, Tom Ford, Roja Parfums and more. Nizami street 111, Baku. Delivery via Wolt."
     },
     "brands": {
       "title": "Brands",
-      "description": "The 33 niche and designer perfume houses in the Parfum City collection."
+      "description": "The {brands} niche and designer perfume houses in the Parfum City collection."
     },
     "catalog": {
       "title": "Collection",
-      "description": "All 590 fragrances at Parfum City: filter by brand, volume, concentration and price."
+      "description": "All {products} fragrances at Parfum City: filter by brand, volume, concentration and price."
     },
     "product": {
       "title": "{name} {volume} ml — {brand}",
@@ -66,8 +67,8 @@
     "niche": "Niche",
     "designer": "Designer",
     "all": "All",
-    "productsCount": "{count} products",
-    "brandsCount": "{count} brands",
+    "productsCount": "{count#product|products}",
+    "brandsCount": "{count#brand|brands}",
     "priceFrom": "from {price}",
     "viewAll": "View all",
     "back": "Back",
@@ -84,7 +85,7 @@
   "home": {
     "heroEyebrow": "Baku · Nizami street 111 · since 2023",
     "heroTitle": "Niche and luxury perfumery",
-    "heroText": "33 perfume houses, 590 fragrances. Byredo, Xerjoff, Roja Parfums, Tom Ford and Clive Christian — in one boutique on Nizami street.",
+    "heroText": "{brands} perfume houses, {products} fragrances. Byredo, Xerjoff, Roja Parfums, Tom Ford and Clive Christian — in one boutique on Nizami street.",
     "heroCta": "View the collection",
     "heroCtaSecondary": "Brands",
     "statBrands": "brands",
@@ -95,8 +96,8 @@
     "featuredTitle": "Eight fragrances from the collection",
     "editorialEyebrow": "About the boutique",
     "editorialTitle": "A place to choose a scent",
-    "editorialText1": "Parfum City has been open since 2023 in the centre of Baku, on Nizami street. The collection holds 590 fragrances from 33 brands: from classic houses such as Guerlain and Hermès to niche names like Xerjoff, Byredo and Roja Parfums.",
-    "editorialText2": "Prices range from 49 to 2448 manats. You can try a fragrance in the boutique, ask by phone or order to your door via Wolt.",
+    "editorialText1": "Parfum City has been open since 2023 in the centre of Baku, on Nizami street. The collection holds {products} fragrances from {brands} brands: from classic houses such as Guerlain and Hermès to niche names like Xerjoff, Byredo and Roja Parfums.",
+    "editorialText2": "Prices range from {min} to {max} manats. You can try a fragrance in the boutique, ask by phone or order to your door via Wolt.",
     "servicesEyebrow": "Services",
     "servicesTitle": "How to buy",
     "service1Title": "Pick up at the boutique",
@@ -113,13 +114,13 @@
   },
   "brands": {
     "eyebrow": "Brands",
-    "title": "33 perfume houses",
+    "title": "{brands} perfume houses",
     "intro": "Niche houses and designer brands. Every brand in the collection has its own page.",
     "filterLabel": "Segment",
     "filterAll": "All",
     "filterNiche": "Niche",
     "filterDesigner": "Designer",
-    "shown": "{count} brands"
+    "shown": "{count#brand|brands}"
   },
   "brand": {
     "eyebrow": "Brand",
@@ -132,7 +133,7 @@
   "catalog": {
     "eyebrow": "Collection",
     "title": "All fragrances",
-    "intro": "All 590 items in the boutique. Filter by brand, volume, concentration and price.",
+    "intro": "All {products} items in the boutique. Filter by brand, volume, concentration and price.",
     "search": "Search",
     "searchPlaceholder": "Fragrance or brand",
     "filters": "Filters",
@@ -149,7 +150,7 @@
     "sortPriceAsc": "Price: low to high",
     "sortPriceDesc": "Price: high to low",
     "sortNameAsc": "Name: A–Z",
-    "results": "{count} products",
+    "results": "{count#product|products}",
     "showing": "Showing {shown} of {total}",
     "showMore": "Show {count} more",
     "empty": "Nothing found",
@@ -196,7 +197,7 @@
     "open": "Open cart",
     "addedTitle": "Added to cart",
     "viewCart": "View cart",
-    "itemsInCart": "{count} items in cart"
+    "itemsInCart": "{count#item|items} in cart"
   },
   "checkout": {
     "eyebrow": "Order",
@@ -280,7 +281,7 @@
     "eyebrow": "Boutique",
     "title": "Parfum City",
     "intro": "A niche and luxury perfumery boutique on Nizami street. Since 2023.",
-    "text1": "The collection holds 590 fragrances from 33 brands — designer houses and niche perfumery. Prices from 49 ₼ to 2448 ₼.",
+    "text1": "The collection holds {products} fragrances from {brands} brands — designer houses and niche perfumery. Prices from {min} ₼ to {max} ₼.",
     "text2": "Fragrances can be tried in the boutique. Orders within Baku are delivered via Wolt in about 40 minutes.",
     "address": "Address",
     "hours": "Opening hours",

@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     locale,
     path: "/brendler",
     title: dict.meta.brands.title,
-    description: dict.meta.brands.description,
+    description: createTranslator(dict)("meta.brands.description"),
   });
 }
 

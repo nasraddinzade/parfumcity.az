@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     locale,
     path: "/kolleksiya",
     title: dict.meta.catalog.title,
-    description: dict.meta.catalog.description,
+    description: createTranslator(dict)("meta.catalog.description"),
   });
 }
 

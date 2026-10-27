@@ -9,6 +9,7 @@ import { CartHydration } from "@/components/providers/cart-hydration";
 import { I18nProvider } from "@/components/providers/i18n-provider";
 import { htmlLang, isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
+import { createTranslator } from "@/lib/i18n/t";
 import { SITE_URL } from "@/lib/site";
 import "../globals.css";
 
@@ -47,7 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     metadataBase: new URL(SITE_URL),
     title: { default: dict.meta.home.title, template: "%s | Parfum City" },
-    description: dict.meta.home.description,
+    description: createTranslator(dict)("meta.home.description"),
     applicationName: "Parfum City",
     formatDetection: { telephone: true },
   };
