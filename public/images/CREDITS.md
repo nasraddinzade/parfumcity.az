@@ -14,3 +14,9 @@ before any public launch.
 
 Products for which neither source had a usable studio photo were removed from
 the catalogue (see the README).
+
+# Home page
+
+`hero/amber-bottle.webp` — photo by Rae Wallis on Unsplash,
+https://unsplash.com/photos/clear-glass-bottle-with-orange-liquid-6uNdAlvwf98,
+free to use under the Unsplash License. Cropped to 4:5.

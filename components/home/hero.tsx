@@ -1,5 +1,5 @@
+import Image from "next/image";
 import Link from "next/link";
-import { BottlePlaceholder } from "@/components/product/bottle-placeholder";
 import { catalogStats } from "@/lib/catalog";
 import { formatPrice } from "@/lib/format";
 import type { Locale } from "@/lib/i18n/config";
@@ -46,21 +46,24 @@ export function Hero({ locale, t }: { locale: Locale; t: Translator }) {
           </dl>
         </div>
 
-        <div className="relative mx-auto flex w-full max-w-md items-end justify-center gap-4 animate-fade-in [animation-delay:200ms] lg:max-w-lg">
-          <div className="w-[26%] opacity-80">
-            <BottlePlaceholder brand="XERJOFF" label="" transparent />
-          </div>
-          <div className="w-[36%]">
-            <BottlePlaceholder brand="BYREDO" label="" transparent />
-          </div>
-          <div className="w-[30%] opacity-90">
-            <BottlePlaceholder brand="TOM FORD" label="" transparent />
-          </div>
+        <figure className="relative mx-auto w-full max-w-sm animate-fade-in [animation-delay:200ms] lg:max-w-md">
+          {/* Thin brass frame offset behind the photo, in the spirit of the hairline layout. */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-x-6 bottom-[8%] h-px bg-gradient-to-r from-transparent via-line-strong to-transparent"
+            className="pointer-events-none absolute -bottom-3 -right-3 left-3 top-3 border border-brass/40"
           />
-        </div>
+          <div className="relative aspect-[4/5] overflow-hidden border border-line bg-ink-2">
+            <Image
+              src="/images/hero/amber-bottle.webp"
+              alt={t("home.heroImageAlt")}
+              width={1200}
+              height={1500}
+              priority
+              sizes="(min-width: 1024px) 448px, (min-width: 640px) 384px, calc(100vw - 2rem)"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </figure>
       </div>
     </section>
   );
